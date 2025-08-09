@@ -39,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 color="text.secondary"
                 sx={{ textAlign: 'right' }}
               >
-                © {new Date().getFullYear()} yeshelpnetwork. All rights reserved.
+                {new Date().getFullYear()} yeshelpnetwork © All rights reserved.
               </Typography>
             </Container>
           </footer>

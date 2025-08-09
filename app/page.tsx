@@ -82,7 +82,7 @@ export default function HomePage() {
             Programs
           </Typography>
           <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 720 }}>
-            Explore our core offerings: Workshops, Community meetups, and Keynotes.
+            Explore our core offerings: Workshops, Community Meetups, and Keynotes.
           </Typography>
           <Box sx={{ display: 'grid', gap: 3, mt: 2, gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: 'repeat(3, 1fr)' } }}>
             {[
@@ -146,61 +146,56 @@ export default function HomePage() {
               <Typography variant="h4" component="h2" fontWeight={700} gutterBottom>
                 About
               </Typography>
+
+              <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 900, mb: 2 }}>
+                Yes Help Network was born from a personal turning point. At 21, our founder, Yeshal, chose to step out of
+                years of shyness to find her voice through youth organisations, councils, and community engagement. That
+                journey revealed a mission that matters: addressing the impact of Domestic & Family Violence (DFV) through
+                early intervention.
+              </Typography>
+
               <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 900 }}>
-                We believe every young person deserves access to guidance, resources, and community. yeshelpnetwork is a
-                platform built to unlock potential through shared learning and real-world experience.
+                Trauma affects mental, physical, emotional, and spiritual wellbeing, yet in many communities it remains
+                taboo. Too many young people stay silent—out of fear, shame, cultural barriers, or lack of awareness. We
+                exist to start the conversation early and build a platform for awareness, empowerment, and prevention—
+                equipping youth with mentors, skills, and community to speak up, heal, and lead. This is just the beginning.
               </Typography>
             </Box>
             <Box>
-              <Image
-                src="/images/brand-lockup.png"
-                alt="Yes Help Network logo lockup"
-                width={900}
-                height={540}
-                style={{ width: '100%', height: 'auto', maxWidth: 460, borderRadius: 8 }}
-              />
+              <Box
+                sx={{
+                  position: 'relative',
+                  width: '100%',
+                  aspectRatio: '1 / 1',
+                  mx: 'auto',
+                  borderRadius: '50%',
+                  overflow: 'hidden',
+                  border: '4px solid rgba(0,0,0,0.06)',
+                  boxShadow: 1,
+                  bgcolor: 'background.paper',
+                }}
+              >
+               
+                <Box sx={{ position: 'absolute', inset: '12px', borderRadius: '50%', overflow: 'hidden', bgcolor: '#fff' }}>
+                  <Image
+                    src="/images/founder-portrait.png"
+                    alt="Founder of Yes Help Network"
+                    fill
+                    sizes="(max-width: 900px) 320px, 420px"
+                    style={{
+                      objectFit: 'contain',
+                      objectPosition: 'center',
+                      transform: 'translateX(8%)',
+                    }}
+                  />
+                </Box>
+              </Box>
             </Box>
           </Box>
         </Container>
       </Box>
 
-      <Box component="section" id="founder" sx={{ py: { xs: 6, sm: 10 }, bgcolor: 'background.default' }}>
-        <Container>
-          <Box
-            sx={{
-              display: 'grid',
-              gap: { xs: 4, md: 8 },
-              alignItems: 'center',
-              gridTemplateColumns: { xs: '1fr', md: '1fr 360px' },
-            }}
-          >
-            <Box>
-              <Typography variant="h4" component="h2" fontWeight={700} gutterBottom>
-                Founder
-              </Typography>
-              <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 800 }}>
-                Building Yes Help Network started with a simple idea: give young people the space, tools, and
-                connections to say “yes” to themselves. Today, the work continues through workshops, school
-                partnerships, and a growing community of mentors.
-              </Typography>
-            </Box>
-            <Box>
-              <Image
-                src="/images/founder-portrait.png"
-                alt="Founder of Yes Help Network"
-                width={640}
-                height={640}
-                style={{
-                  width: '100%',
-                  height: 'auto',
-                  borderRadius: '50%',
-                  border: '4px solid rgba(0,0,0,0.06)',
-                }}
-              />
-            </Box>
-          </Box>
-        </Container>
-      </Box>
+      
 
       
 
