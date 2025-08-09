@@ -86,13 +86,44 @@ export default function HomePage() {
           </Typography>
           <Box sx={{ display: 'grid', gap: 3, mt: 2, gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: 'repeat(3, 1fr)' } }}>
             {[
-              { title: 'Workshops', desc: 'Hands-on sessions to build practical skills with mentors and peers.' },
-              { title: 'Community Meetups', desc: 'Regular gatherings to connect, share projects, and collaborate.' },
-              { title: 'Keynotes', desc: 'Talks from leaders and creators to inspire action and learning.' },
+              {
+                title: 'Workshops',
+                desc: 'Hands-on sessions to build practical skills with mentors and peers.',
+                imgSrc: '/images/insight-integrational-trauma.png',
+                imgAlt: 'Insight infographic: Recognising intergenerational trauma',
+              },
+              {
+                title: 'Community Meetups',
+                desc: 'Regular gatherings to connect, share projects, and collaborate.',
+                imgSrc: '/images/hero-group.png',
+                imgAlt: 'Group photo from a community meetup',
+              },
+              {
+                title: 'Keynotes',
+                desc: 'Talks from leaders and creators to inspire action and learning.',
+                imgSrc: '/images/brand-lockup.png',
+                imgAlt: 'Yes Help Network brand lockup',
+              },
             ].map((item) => (
-              <Box key={item.title} sx={{ p: 3, borderRadius: 2, bgcolor: 'background.paper', border: 1, borderColor: 'divider', boxShadow: 1 }}>
-                <Typography variant="h6" fontWeight={600}>{item.title}</Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ mt: 1.25 }}>{item.desc}</Typography>
+              <Box
+                key={item.title}
+                sx={{ p: 3, borderRadius: 2, bgcolor: 'background.paper', border: 1, borderColor: 'divider', boxShadow: 1 }}
+              >
+                <Typography variant="h6" fontWeight={600} sx={{ mb: 1 }}>
+                  {item.title}
+                </Typography>
+                <Box sx={{ my: 1.5, borderRadius: 1, overflow: 'hidden', border: 1, borderColor: 'divider' }}>
+                  <Image
+                    src={item.imgSrc}
+                    alt={item.imgAlt}
+                    width={640}
+                    height={400}
+                    style={{ width: '100%', height: 'auto' }}
+                  />
+                </Box>
+                <Typography variant="body2" color="text.secondary" sx={{ mt: 1.25 }}>
+                  {item.desc}
+                </Typography>
               </Box>
             ))}
           </Box>
@@ -103,25 +134,75 @@ export default function HomePage() {
 
       <Box component="section" id="about" sx={{ py: { xs: 6, sm: 10 } }}>
         <Container>
-          <Typography variant="h4" component="h2" fontWeight={700} gutterBottom>
-            About
-          </Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 900 }}>
-            We believe every young person deserves access to guidance, resources, and community. yeshelpnetwork is a
-            platform built to unlock potential through shared learning and real-world experience.
-          </Typography>
-          <Box sx={{ mt: 3 }}>
-            <Image
-              src="/yeshelp-logo.jpg"
-              alt="Yes Help Network logo"
-              width={640}
-              height={800}
-              style={{ width: '100%', height: 'auto', maxWidth: 420, borderRadius: 8 }}
-              priority
-            />
+          <Box
+            sx={{
+              display: 'grid',
+              gap: { xs: 3, md: 6 },
+              alignItems: 'center',
+              gridTemplateColumns: { xs: '1fr', md: '1fr 420px' },
+            }}
+          >
+            <Box>
+              <Typography variant="h4" component="h2" fontWeight={700} gutterBottom>
+                About
+              </Typography>
+              <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 900 }}>
+                We believe every young person deserves access to guidance, resources, and community. yeshelpnetwork is a
+                platform built to unlock potential through shared learning and real-world experience.
+              </Typography>
+            </Box>
+            <Box>
+              <Image
+                src="/images/brand-lockup.png"
+                alt="Yes Help Network logo lockup"
+                width={900}
+                height={540}
+                style={{ width: '100%', height: 'auto', maxWidth: 460, borderRadius: 8 }}
+              />
+            </Box>
           </Box>
         </Container>
       </Box>
+
+      <Box component="section" id="founder" sx={{ py: { xs: 6, sm: 10 }, bgcolor: 'background.default' }}>
+        <Container>
+          <Box
+            sx={{
+              display: 'grid',
+              gap: { xs: 4, md: 8 },
+              alignItems: 'center',
+              gridTemplateColumns: { xs: '1fr', md: '1fr 360px' },
+            }}
+          >
+            <Box>
+              <Typography variant="h4" component="h2" fontWeight={700} gutterBottom>
+                Founder
+              </Typography>
+              <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 800 }}>
+                Building Yes Help Network started with a simple idea: give young people the space, tools, and
+                connections to say “yes” to themselves. Today, the work continues through workshops, school
+                partnerships, and a growing community of mentors.
+              </Typography>
+            </Box>
+            <Box>
+              <Image
+                src="/images/founder-portrait.png"
+                alt="Founder of Yes Help Network"
+                width={640}
+                height={640}
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  borderRadius: '50%',
+                  border: '4px solid rgba(0,0,0,0.06)',
+                }}
+              />
+            </Box>
+          </Box>
+        </Container>
+      </Box>
+
+      
 
       <Box component="section" id="contact" sx={{ py: { xs: 6, sm: 10 } }}>
         <Container>

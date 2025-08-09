@@ -34,7 +34,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main>{children}</main>
           <footer>
             <Container sx={{ py: 4 }}>
-              <Typography variant="body2" color="text.secondary">
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                sx={{ textAlign: 'right' }}
+              >
                 © {new Date().getFullYear()} yeshelpnetwork. All rights reserved.
               </Typography>
             </Container>
