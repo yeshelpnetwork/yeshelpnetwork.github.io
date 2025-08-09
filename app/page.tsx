@@ -37,7 +37,8 @@ export default function HomePage() {
                   position: 'absolute',
                   inset: -16,
                   borderRadius: 4,
-                  background: 'linear-gradient(45deg, #c3d5ff, #5a8eff)',
+                  // Soft glow using Calm Sage -> Sunshine Yellow
+                  background: 'linear-gradient(45deg, #CFE6DA, #F7D070)',
                   opacity: 0.6,
                   filter: 'blur(24px)',
                   zIndex: 0,
@@ -57,8 +58,18 @@ export default function HomePage() {
                   gridTemplateColumns: 'repeat(3, 1fr)',
                   gap: 2,
                 }}>
-                  {[100,200,300,300,400,500,200,100,400].map((shade, idx) => (
-                    <Box key={idx} sx={{ borderRadius: 1, bgcolor: `primary.${shade}` }} />
+                  {[
+                    '#D64550', // primary main — red
+                    '#4BAF8A', // secondary main — green
+                    '#F7D070', // highlight — yellow
+                    '#CFE6DA', // soft background — sage
+                    '#FAF7F2', // neutral — off-white
+                    '#333333', // text — charcoal
+                    '#E97079', // primary light tint
+                    '#75C6A8', // secondary light tint
+                    '#FBE3A1', // yellow light tint
+                  ].map((hex, idx) => (
+                    <Box key={idx} sx={{ borderRadius: 1, bgcolor: hex }} />
                   ))}
                 </Box>
               </Box>

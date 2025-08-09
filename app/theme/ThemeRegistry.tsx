@@ -20,16 +20,38 @@ function createEmotionCache() {
 
 const theme = createTheme({
   palette: {
-    primary: { main: '#2563eb' },
-    secondary: { main: '#1e40af' },
+    // Primary Brand Colour — Warm Ladybug Red
+    primary: {
+      main: '#D64550',
+      light: '#E97079',
+      dark: '#A93B44',
+      contrastText: '#FFFFFF',
+    },
+    // Secondary Accent — Leaf Green
+    secondary: {
+      main: '#4BAF8A',
+      light: '#75C6A8',
+      dark: '#38866A',
+      contrastText: '#0B2D1F',
+    },
+    // Highlight Accent — Sunshine Yellow (mapped to warning)
+    warning: {
+      main: '#F7D070',
+      light: '#FBE3A1',
+      dark: '#D9B960',
+      contrastText: '#3A2E0D',
+    },
     background: {
-      default: '#ffffff',
-      paper: '#ffffff',
+      // Neutral Base — Warm Off-White
+      default: '#FAF7F2',
+      paper: '#FFFFFF',
     },
     text: {
-      primary: '#111827',
-      secondary: '#4b5563',
+      // Text/Dark Accent — Charcoal Grey
+      primary: '#333333',
+      secondary: '#555555',
     },
+    divider: '#E7E2DC',
   },
   shape: { borderRadius: 10 },
   typography: {
