@@ -7,7 +7,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
-import Image from 'next/image';
+ 
 
 const pages = [
   { label: 'About', href: '#about' },
@@ -20,7 +20,9 @@ export default function HeaderBar() {
     <AppBar position="sticky" color="inherit" elevation={0} sx={{ borderBottom: 1, borderColor: 'divider' }}>
       <Container maxWidth="lg">
         <Toolbar disableGutters sx={{ minHeight: 72, gap: 2 }}>
-          <Box sx={{ width: 32, height: 32, bgcolor: 'primary.main', borderRadius: 1 }} />
+          <Box component="span" role="img" aria-label="Ladybug" sx={{ fontSize: 32, lineHeight: 1 }}>
+            🐞
+          </Box>
           <Typography variant="h6" color="text.primary" sx={{ flexGrow: 1 }}>
             yeshelpnetwork
           </Typography>
