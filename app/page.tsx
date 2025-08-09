@@ -150,15 +150,15 @@ export default function HomePage() {
               <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 900, mb: 2 }}>
                 Yes Help Network was born from a personal turning point. At 21, our founder, Yeshal, chose to step out of
                 years of shyness to find her voice through youth organisations, councils, and community engagement. That
-                journey revealed a mission that matters: addressing the impact of Domestic & Family Violence (DFV) through
+                journey revealed a mission that matters: <b>addressing the impact of Domestic & Family Violence (DFV)</b> through
                 early intervention.
               </Typography>
 
               <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 900 }}>
                 Trauma affects mental, physical, emotional, and spiritual wellbeing, yet in many communities it remains
-                taboo. Too many young people stay silent—out of fear, shame, cultural barriers, or lack of awareness. We
-                exist to start the conversation early and build a platform for awareness, empowerment, and prevention—
-                equipping youth with mentors, skills, and community to speak up, heal, and lead. This is just the beginning.
+                taboo. Too many young people stay silent out of fear, shame, cultural barriers, or lack of awareness. We
+                exist to start the conversation early and build a platform for awareness, empowerment, and prevention,
+                equipping youth with mentors, skills, and community to speak up, heal, and lead.
               </Typography>
             </Box>
             <Box>
