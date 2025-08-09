@@ -2,6 +2,8 @@ import { Box, Button, Container, Divider, Typography } from '@mui/material';
 import Image from 'next/image';
 
 export default function HomePage() {
+  const eventUrl =
+    'https://www.eventbrite.com.au/e/safe-spaces-for-real-conversations-tickets-1550262048519?aff=oddtdtcreator';
 
   return (
     <Box>
@@ -126,6 +128,57 @@ export default function HomePage() {
                 </Typography>
               </Box>
             ))}
+          </Box>
+        </Container>
+      </Box>
+
+      <Box component="section" id="events" sx={{ py: { xs: 6, sm: 10 } }}>
+        <Container>
+          <Typography variant="h4" component="h2" fontWeight={700} gutterBottom>
+            Current Events
+          </Typography>
+          <Box
+            sx={{
+              p: 3,
+              mt: 2,
+              borderRadius: 2,
+              bgcolor: 'background.paper',
+              border: 1,
+              borderColor: 'divider',
+              boxShadow: 1,
+            }}
+          >
+            <Typography variant="h6" fontWeight={600}>
+              Safe Spaces for Real Conversations
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: 0.75 }}>
+              By headspace Parramatta
+            </Typography>
+            <Typography variant="body2" sx={{ mt: 1 }}>
+              Thursday, August 21 · 6 - 7:30pm AEST
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              headspace Parramatta — 2 Wentworth Street Parramatta, NSW 2150
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: 1.25 }}>
+              A 90-minute, trauma-informed workshop for young people (16–25) to connect, reflect, and speak openly
+              about mental health. Free bubble tea for participants.
+            </Typography>
+            <Box sx={{ display: 'flex', gap: 1.5, mt: 2, alignItems: 'center' }}>
+              <Button
+                href={eventUrl}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                variant="contained"
+                color="primary"
+                aria-label="Open Eventbrite listing for Safe Spaces for Real Conversations"
+              >
+                Get tickets on Eventbrite
+              </Button>
+              <Typography variant="caption" color="text.secondary">
+                External link opens in a new tab
+              </Typography>
+            </Box>
           </Box>
         </Container>
       </Box>
