@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "prepare": "simple-git-hooks"
   },
   "dependencies": {
     "next": "latest",
@@ -28,7 +30,15 @@
     "eslint-config-next": "latest",
     "postcss": "latest",
     "tailwindcss": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "lint-staged": "latest",
+    "simple-git-hooks": "latest"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint --fix --max-warnings=0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "lint-staged"
   }
 }
 
