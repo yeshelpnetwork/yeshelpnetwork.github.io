@@ -17,4 +17,75 @@ body {
   background: rgb(var(--background));
 }
 
+/* Floating ladybug background (CSS-only, minimal footprint) */
+.floating-bugs {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.site-content {
+  position: relative;
+  z-index: 1;
+}
+
+.floating-bugs .bug {
+  position: absolute;
+  top: 100%;
+  animation-name: bug-float;
+  animation-duration: 22s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: 0.35; /* half-transparent vibe */
+  transform: translateY(0) rotate(0deg);
+}
+
+.floating-bugs .bug:nth-child(2) { animation-duration: 26s; opacity: 0.28; }
+.floating-bugs .bug:nth-child(3) { animation-duration: 24s; opacity: 0.32; }
+.floating-bugs .bug:nth-child(4) { animation-duration: 28s; opacity: 0.26; }
+.floating-bugs .bug:nth-child(5) { animation-duration: 23s; opacity: 0.30; }
+.floating-bugs .bug:nth-child(6) { animation-duration: 27s; opacity: 0.24; }
+.floating-bugs .bug:nth-child(7) { animation-duration: 25s; opacity: 0.30; }
+.floating-bugs .bug:nth-child(8) { animation-duration: 29s; opacity: 0.22; }
+.floating-bugs .bug:nth-child(9) { animation-duration: 21s; opacity: 0.34; }
+.floating-bugs .bug:nth-child(10) { animation-duration: 30s; opacity: 0.20; }
+.floating-bugs .bug:nth-child(11) { animation-duration: 26s; opacity: 0.28; }
+
+/* slight stagger so they don't all start at once */
+.floating-bugs .bug:nth-child(odd) { animation-delay: -6s; }
+.floating-bugs .bug:nth-child(3n) { animation-delay: -3s; }
+
+.floating-bugs .emoji {
+  display: inline-block;
+  font-size: clamp(20px, 3vw, 36px);
+  filter: saturate(0.9);
+  animation-name: bug-sway;
+  animation-duration: 6s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.floating-bugs .bug:nth-child(2) .emoji { animation-duration: 7s; }
+.floating-bugs .bug:nth-child(3) .emoji { animation-duration: 5.5s; }
+.floating-bugs .bug:nth-child(4) .emoji { animation-duration: 6.5s; }
+.floating-bugs .bug:nth-child(5) .emoji { animation-duration: 5s; }
+.floating-bugs .bug:nth-child(6) .emoji { animation-duration: 7.5s; }
+.floating-bugs .bug:nth-child(7) .emoji { animation-duration: 6.25s; }
+.floating-bugs .bug:nth-child(8) .emoji { animation-duration: 7.25s; }
+.floating-bugs .bug:nth-child(9) .emoji { animation-duration: 5.75s; }
+.floating-bugs .bug:nth-child(10) .emoji { animation-duration: 8s; }
+.floating-bugs .bug:nth-child(11) .emoji { animation-duration: 6.75s; }
+
+@keyframes bug-float {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-120vh) rotate(360deg); }
+}
+
+@keyframes bug-sway {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(18px); }
+}
+
 

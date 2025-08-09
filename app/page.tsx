@@ -167,7 +167,7 @@ export default function HomePage() {
                 <Chip label="Thu, Aug 21 · 6–7:30pm AEST" size="small" />
                 <Chip label="Parramatta, NSW" size="small" variant="outlined" />
                 <Chip label="Ages 16–25" size="small" variant="outlined" />
-                <Chip label="Free bubble tea" size="small" />
+                <Chip label="Free bubble tea 🧋" size="small" />
               </Stack>
 
               <Typography variant="body2" color="text.secondary" sx={{ mt: 1.5 }}>
@@ -265,12 +265,23 @@ export default function HomePage() {
           <Typography variant="h4" component="h2" fontWeight={700} gutterBottom>
             Contact
           </Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 720 }}>
-            Want to sponsor a program, volunteer as a mentor, or partner with us? Email
-            <Box component="a" href="mailto:hello@yeshelpnetwork.example" sx={{ ml: 0.5, color: 'primary.main', textDecoration: 'underline' }}>
-              hello@yeshelpnetwork.example
+          <Box sx={{ mt: 1.5, border: 1, borderColor: 'divider', borderRadius: 2, p: { xs: 2, sm: 2.5 }, bgcolor: 'background.paper' }}>
+            <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr auto' }, alignItems: 'center', gap: 2 }}>
+              <Typography variant="body1" color="text.secondary">
+                Want to sponsor a program, volunteer as a mentor, or partner with us? Connect on Instagram.
+              </Typography>
+              <Box
+                component="a"
+                href="https://www.instagram.com/yeshelpnetwork"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                sx={{ color: 'primary.main', textDecoration: 'underline', fontWeight: 600, whiteSpace: 'nowrap', justifySelf: { sm: 'end' } }}
+                aria-label="Open Instagram profile @yeshelpnetwork (opens in a new tab)"
+              >
+                @yeshelpnetwork
+              </Box>
             </Box>
-          </Typography>
+          </Box>
         </Container>
       </Box>
     </Box>

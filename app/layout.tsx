@@ -29,20 +29,37 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="emotion-insertion-point" content="" />
       </head>
       <body>
+        {/* Background floating ladybugs layer (decorative only) */}
+        <div className="floating-bugs" aria-hidden="true">
+          <span className="bug" style={{ left: '4%' }}><span className="emoji">🐞</span></span>
+          <span className="bug" style={{ left: '12%' }}><span className="emoji">🐞</span></span>
+          <span className="bug" style={{ left: '20%' }}><span className="emoji">🐞</span></span>
+          <span className="bug" style={{ left: '28%' }}><span className="emoji">🐞</span></span>
+          <span className="bug" style={{ left: '36%' }}><span className="emoji">🐞</span></span>
+          <span className="bug" style={{ left: '44%' }}><span className="emoji">🐞</span></span>
+          <span className="bug" style={{ left: '56%' }}><span className="emoji">🐞</span></span>
+          <span className="bug" style={{ left: '64%' }}><span className="emoji">🐞</span></span>
+          <span className="bug" style={{ left: '76%' }}><span className="emoji">🐞</span></span>
+          <span className="bug" style={{ left: '84%' }}><span className="emoji">🐞</span></span>
+          <span className="bug" style={{ left: '92%' }}><span className="emoji">🐞</span></span>
+        </div>
+
         <ThemeRegistry>
-          <HeaderBar />
-          <main>{children}</main>
-          <footer>
-            <Container sx={{ py: 4 }}>
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                sx={{ textAlign: 'right' }}
-              >
-                {new Date().getFullYear()} yeshelpnetwork © All rights reserved.
-              </Typography>
-            </Container>
-          </footer>
+          <div className="site-content">
+            <HeaderBar />
+            <main>{children}</main>
+            <footer>
+              <Container sx={{ py: 4 }}>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{ textAlign: 'right' }}
+                >
+                  {new Date().getFullYear()} yeshelpnetwork © All rights reserved.
+                </Typography>
+              </Container>
+            </footer>
+          </div>
         </ThemeRegistry>
       </body>
     </html>
