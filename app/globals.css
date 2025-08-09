@@ -17,6 +17,4 @@ body {
   background: rgb(var(--background));
 }
 
-/* Removed Tailwind @apply to avoid build-time variant processing issues */
-
 

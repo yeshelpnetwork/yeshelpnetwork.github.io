@@ -1,5 +1,3 @@
-"use client";
-import * as React from 'react';
 import { Box, Button, Container, Divider, Typography } from '@mui/material';
 import Image from 'next/image';
 
@@ -38,7 +36,6 @@ export default function HomePage() {
                   position: 'absolute',
                   inset: -16,
                   borderRadius: 4,
-                  // Soft glow using Calm Sage -> Sunshine Yellow
                   background: 'linear-gradient(45deg, #CFE6DA, #F7D070)',
                   opacity: 0.6,
                   filter: 'blur(24px)',
@@ -60,15 +57,15 @@ export default function HomePage() {
                   gap: 2,
                 }}>
                   {[
-                    '#D64550', // primary main — red
-                    '#4BAF8A', // secondary main — green
-                    '#F7D070', // highlight — yellow
-                    '#CFE6DA', // soft background — sage
-                    '#FAF7F2', // neutral — off-white
-                    '#333333', // text — charcoal
-                    '#E97079', // primary light tint
-                    '#75C6A8', // secondary light tint
-                    '#FBE3A1', // yellow light tint
+                    '#D64550',
+                    '#4BAF8A',
+                    '#F7D070',
+                    '#CFE6DA',
+                    '#FAF7F2',
+                    '#333333',
+                    '#E97079',
+                    '#75C6A8',
+                    '#FBE3A1',
                   ].map((hex, idx) => (
                     <Box key={idx} sx={{ borderRadius: 1, bgcolor: hex }} />
                   ))}

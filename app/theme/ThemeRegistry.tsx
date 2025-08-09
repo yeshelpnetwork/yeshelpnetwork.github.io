@@ -12,7 +12,7 @@ function createEmotionCache() {
       'meta[name="emotion-insertion-point"]'
     );
     if (emotionInsertionPoint) {
-      insertionPoint = emotionInsertionPoint as unknown as HTMLElement;
+      insertionPoint = emotionInsertionPoint;
     }
   }
   return createCache({ key: 'mui', insertionPoint, prepend: true });
@@ -20,21 +20,18 @@ function createEmotionCache() {
 
 const theme = createTheme({
   palette: {
-    // Primary Brand Colour — Warm Ladybug Red
     primary: {
       main: '#D64550',
       light: '#E97079',
       dark: '#A93B44',
       contrastText: '#FFFFFF',
     },
-    // Secondary Accent — Leaf Green
     secondary: {
       main: '#4BAF8A',
       light: '#75C6A8',
       dark: '#38866A',
       contrastText: '#0B2D1F',
     },
-    // Highlight Accent — Sunshine Yellow (mapped to warning)
     warning: {
       main: '#F7D070',
       light: '#FBE3A1',
@@ -42,12 +39,10 @@ const theme = createTheme({
       contrastText: '#3A2E0D',
     },
     background: {
-      // Neutral Base — Warm Off-White
       default: '#FAF7F2',
       paper: '#FFFFFF',
     },
     text: {
-      // Text/Dark Accent — Charcoal Grey
       primary: '#333333',
       secondary: '#555555',
     },

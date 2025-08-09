@@ -9,7 +9,6 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Keep existing brand scale (unused) and expose new palette tokens
         brand: {
           50: '#f3f6ff',
           100: '#e6edff',
@@ -22,12 +21,12 @@ export default {
           800: '#1e3a8a',
           900: '#1e325f'
         },
-        primary: '#D64550', // Warm Ladybug Red
-        secondary: '#4BAF8A', // Leaf Green
-        sage: '#CFE6DA', // Calm Sage
-        sunshine: '#F7D070', // Sunshine Yellow
-        offwhite: '#FAF7F2', // Warm Off-White
-        charcoal: '#333333', // Charcoal Grey
+        primary: '#D64550',
+        secondary: '#4BAF8A',
+        sage: '#CFE6DA',
+        sunshine: '#F7D070',
+        offwhite: '#FAF7F2',
+        charcoal: '#333333',
       }
     }
   },
