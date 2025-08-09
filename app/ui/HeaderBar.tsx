@@ -13,6 +13,7 @@ import Image from 'next/image';
 const pages = [
   { label: 'About', href: '#about' },
   { label: 'Programs', href: '#programs' },
+  { label: 'Events', href: '#events' },
   { label: 'Contact', href: '#contact' },
 ];
 

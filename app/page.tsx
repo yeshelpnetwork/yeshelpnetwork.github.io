@@ -1,4 +1,4 @@
-import { Box, Button, Container, Divider, Typography } from '@mui/material';
+import { Box, Button, Container, Divider, Typography, Card, CardContent, CardActions, Stack, Chip } from '@mui/material';
 import Image from 'next/image';
 
 export default function HomePage() {
@@ -137,49 +137,57 @@ export default function HomePage() {
           <Typography variant="h4" component="h2" fontWeight={700} gutterBottom>
             Current Events
           </Typography>
-          <Box
+          <Card
             sx={{
-              p: 3,
               mt: 2,
+              overflow: 'hidden',
               borderRadius: 2,
               bgcolor: 'background.paper',
               border: 1,
               borderColor: 'divider',
               boxShadow: 1,
+              transition: 'box-shadow 200ms ease, border-color 200ms ease',
+              '&:hover': {
+                boxShadow: 3,
+                borderColor: 'primary.light',
+              },
             }}
+            aria-labelledby="event-ssrc-title"
           >
-            <Typography variant="h6" fontWeight={600}>
-              Safe Spaces for Real Conversations
-            </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mt: 0.75 }}>
-              By headspace Parramatta
-            </Typography>
-            <Typography variant="body2" sx={{ mt: 1 }}>
-              Thursday, August 21 · 6 - 7:30pm AEST
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              headspace Parramatta — 2 Wentworth Street Parramatta, NSW 2150
-            </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mt: 1.25 }}>
-              A 90-minute, trauma-informed workshop for young people (16–25) to connect, reflect, and speak openly
-              about mental health. Free bubble tea for participants.
-            </Typography>
-            <Box sx={{ display: 'flex', gap: 1.5, mt: 2, alignItems: 'center' }}>
+            <Box sx={{ height: 6, bgcolor: 'primary.main', opacity: 0.8 }} />
+            <CardContent sx={{ p: { xs: 2.5, sm: 3 } }}>
+              <Typography id="event-ssrc-title" variant="h6" fontWeight={700} gutterBottom>
+                Safe Spaces for Real Conversations
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                By headspace Parramatta
+              </Typography>
+
+              <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mt: 1.5 }}>
+                <Chip label="Thu, Aug 21 · 6–7:30pm AEST" size="small" />
+                <Chip label="Parramatta, NSW" size="small" variant="outlined" />
+                <Chip label="Ages 16–25" size="small" variant="outlined" />
+                <Chip label="Free bubble tea" size="small" />
+              </Stack>
+
+              <Typography variant="body2" color="text.secondary" sx={{ mt: 1.5 }}>
+                A 90-minute, trauma-informed workshop for young people to connect, reflect, and speak openly about
+                mental health. Facilitated by Yeshal Mansoor, founder of the Yes Help Network.
+              </Typography>
+            </CardContent>
+            <CardActions sx={{ px: { xs: 2.5, sm: 3 }, pb: 3, pt: 0 }}>
               <Button
                 href={eventUrl}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 variant="contained"
                 color="primary"
-                aria-label="Open Eventbrite listing for Safe Spaces for Real Conversations"
+                aria-label="Open Eventbrite listing for Safe Spaces for Real Conversations (opens in a new tab)"
               >
                 Get tickets on Eventbrite
               </Button>
-              <Typography variant="caption" color="text.secondary">
-                External link opens in a new tab
-              </Typography>
-            </Box>
-          </Box>
+            </CardActions>
+          </Card>
         </Container>
       </Box>
 
