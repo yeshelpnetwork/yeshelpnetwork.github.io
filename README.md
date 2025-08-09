@@ -1,4 +1,4 @@
-# Empower — Youth Empowerment Platform (Starter)
+# Yes Help Network site
 
 A minimal Next.js + Tailwind CSS site configured for static export and GitHub Pages deployment.
 
@@ -6,6 +6,12 @@ A minimal Next.js + Tailwind CSS site configured for static export and GitHub Pa
 - Next.js (App Router), React, TypeScript
 - Tailwind CSS
 - GitHub Actions → GitHub Pages (static export)
+
+## Assets
+
+- Favicon and default SVG icon live at `app/icon.svg`.
+- Reusable vector mark is at `public/logo-mark.svg`.
+- Company bitmap logo should be added as `public/yeshelp-logo.jpg` (JPEG). You can replace this file with an updated export anytime.
 
 ## Local development
 1. Install Node.js 20+

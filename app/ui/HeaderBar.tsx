@@ -7,6 +7,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
+import Image from 'next/image';
 
 const pages = [
   { label: 'About', href: '#about' },
@@ -19,10 +20,13 @@ export default function HeaderBar() {
     <AppBar position="sticky" color="inherit" elevation={0} sx={{ borderBottom: 1, borderColor: 'divider' }}>
       <Container maxWidth="lg">
         <Toolbar disableGutters sx={{ minHeight: 72, gap: 2 }}>
-          <Box sx={{ width: 32, height: 32, bgcolor: 'primary.main', borderRadius: 1 }} />
-          <Typography variant="h6" color="text.primary" sx={{ flexGrow: 1 }}>
-            Empower
-          </Typography>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.25 }}>
+            <Image src="/logo-mark.svg" alt="Yes Help Network" width={32} height={32} priority />
+            <Typography variant="h6" color="text.primary">
+              Yes Help Network
+            </Typography>
+          </Box>
+          <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
             {pages.map((p) => (
               <Button key={p.label} href={p.href} color="primary" sx={{ textTransform: 'none' }}>

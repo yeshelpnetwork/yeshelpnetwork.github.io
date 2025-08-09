@@ -1,6 +1,7 @@
 "use client";
 import * as React from 'react';
 import { Box, Button, Container, Divider, Typography } from '@mui/material';
+import Image from 'next/image';
 
 export default function HomePage() {
 
@@ -112,6 +113,16 @@ export default function HomePage() {
             We believe every young person deserves access to guidance, resources, and community. Empower is a
             platform built to unlock potential through shared learning and real-world experience.
           </Typography>
+          <Box sx={{ mt: 3 }}>
+            <Image
+              src="/yeshelp-logo.jpg"
+              alt="Yes Help Network logo"
+              width={640}
+              height={800}
+              style={{ width: '100%', height: 'auto', maxWidth: 420, borderRadius: 8 }}
+              priority
+            />
+          </Box>
         </Container>
       </Box>
 

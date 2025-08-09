@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title" role="img">
-  <title>Yes Help Network favicon</title>
+  <title>Yes Help Network logo mark</title>
   <defs>
     <linearGradient id="ringGrad" x1="0" y1="1" x2="1" y2="0">
       <stop offset="0" stop-color="#2e7d56"/>
@@ -19,4 +19,5 @@
     <path d="M29.5 19c1.2-1.9 2.9-3.2 2.9-3.2S34 17 35 19" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
   </g>
 </svg>
+
 

@@ -5,20 +5,23 @@ import HeaderBar from './ui/HeaderBar';
 import { Container, Typography } from '@mui/material';
 
 export const metadata: Metadata = {
-  title: 'Empower | Youth Empowerment Platform',
-  description: 'Empowering young people with resources, mentorship, and opportunities.',
+  title: 'Yes Help Network',
+  description: 'Connecting people to support, opportunities, and community.',
   metadataBase: new URL('https://yeshelpnetwork.github.io'),
+  icons: {
+    icon: '/icon.svg'
+  },
   openGraph: {
-    title: 'Empower | Youth Empowerment Platform',
-    description: 'Empowering young people with resources, mentorship, and opportunities.',
+    title: 'Yes Help Network',
+    description: 'Connecting people to support, opportunities, and community.',
     url: 'https://yeshelpnetwork.github.io',
-    siteName: 'Empower',
+    siteName: 'Yes Help Network',
     type: 'website'
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Empower | Youth Empowerment Platform',
-    description: 'Empowering young people with resources, mentorship, and opportunities.'
+    title: 'Yes Help Network',
+    description: 'Connecting people to support, opportunities, and community.'
   }
 };
 
