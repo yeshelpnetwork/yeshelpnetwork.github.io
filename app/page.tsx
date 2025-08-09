@@ -1,5 +1,6 @@
 import { Box, Button, Container, Divider, Typography, Card, CardContent, CardActions, Stack, Chip } from '@mui/material';
 import Image from 'next/image';
+import Script from 'next/script';
 
 export default function HomePage() {
   const eventUrl =
@@ -7,6 +8,36 @@ export default function HomePage() {
 
   return (
     <Box>
+      {/* Structured data: Organization + WebSite for rich results */}
+      <Script id="ld-json-org" type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'Yes Help Network',
+            url: 'https://yeshelpnetwork.github.io/',
+            logo: 'https://yeshelpnetwork.github.io/images/logo-mark.png',
+            sameAs: [
+              'https://www.instagram.com/yeshelpnetwork'
+            ],
+          }),
+        }}
+      />
+      <Script id="ld-json-website" type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'Yes Help Network',
+            url: 'https://yeshelpnetwork.github.io/',
+            potentialAction: {
+              '@type': 'SearchAction',
+              target: 'https://yeshelpnetwork.github.io/?q={search_term_string}',
+              'query-input': 'required name=search_term_string'
+            }
+          }),
+        }}
+      />
       <Box component="section" sx={{ py: { xs: 6, sm: 10 }, bgcolor: 'background.default' }}>
         <Container>
           <Box sx={{
