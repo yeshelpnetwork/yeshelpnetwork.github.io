@@ -32,6 +32,11 @@ jobs:
       - name: Build (Next.js static export)
         run: npm run build
 
+      - name: Ensure .nojekyll is present
+        run: |
+          mkdir -p out
+          touch out/.nojekyll
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
