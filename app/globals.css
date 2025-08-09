@@ -17,6 +17,12 @@ body {
   background: rgb(var(--background));
 }
 
+/* Accessibility: visible focus indicator */
+:focus-visible {
+  outline: 3px solid #4BAF8A; /* secondary.main */
+  outline-offset: 3px;
+}
+
 /* Floating ladybug background (CSS-only, minimal footprint) */
 .floating-bugs {
   position: fixed;

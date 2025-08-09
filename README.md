@@ -1,6 +1,6 @@
 ### yeshelpnetwork — Youth Empowerment Platform
 
-Minimal site built with Next.js (App Router), TypeScript, MUI, and Tailwind. Configured for static export and GitHub Pages.
+built with Next.js (App Router), TypeScript, MUI, and Tailwind. Configured for static export and GitHub Pages.
 
 ## Quick start
 - Node.js 20+

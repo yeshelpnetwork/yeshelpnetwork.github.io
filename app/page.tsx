@@ -1,6 +1,35 @@
 import { Box, Button, Container, Divider, Typography, Card, CardContent, CardActions, Stack, Chip } from '@mui/material';
 import Image from 'next/image';
 import Script from 'next/script';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Empowering young people to lead, create, and thrive',
+  description:
+    'yeshelpnetwork connects youth with mentorship, skills training, and opportunities to grow and lead.',
+  alternates: { canonical: '/' },
+  openGraph: {
+    title: 'Empowering young people to lead, create, and thrive',
+    description:
+      'yeshelpnetwork connects youth with mentorship, skills training, and opportunities to grow and lead.',
+    url: '/',
+    images: [
+      {
+        url: '/images/hero-group.png',
+        width: 1200,
+        height: 630,
+        alt: 'Youth community gathering at a Yes Help Network event',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Empowering young people to lead, create, and thrive',
+    description:
+      'yeshelpnetwork connects youth with mentorship, skills training, and opportunities to grow and lead.',
+    images: ['/images/hero-group.png'],
+  },
+};
 
 export default function HomePage() {
   const eventUrl =
@@ -8,18 +37,23 @@ export default function HomePage() {
 
   return (
     <Box>
-      {/* Structured data: Organization + WebSite for rich results */}
-      <Script id="ld-json-org" type="application/ld+json"
+      {/* Structured data: LocalBusiness + WebSite for rich results */}
+      <Script id="ld-json-localbusiness" type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org',
-            '@type': 'Organization',
+            '@type': 'LocalBusiness',
             name: 'Yes Help Network',
             url: 'https://yeshelpnetwork.github.io/',
+            image: 'https://yeshelpnetwork.github.io/images/brand-lockup.png',
             logo: 'https://yeshelpnetwork.github.io/images/logo-mark.png',
-            sameAs: [
-              'https://www.instagram.com/yeshelpnetwork'
-            ],
+            sameAs: ['https://www.instagram.com/yeshelpnetwork'],
+            address: {
+              '@type': 'PostalAddress',
+              addressLocality: 'Parramatta',
+              addressRegion: 'NSW',
+              addressCountry: 'AU',
+            },
           }),
         }}
       />

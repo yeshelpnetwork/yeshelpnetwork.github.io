@@ -28,9 +28,14 @@ export default function HeaderBar() {
           <Typography variant="h6" color="text.primary" sx={{ flexGrow: 1 }}>
             Yes Help Network
           </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
+          <Box component="nav" aria-label="Primary" sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
             {pages.map((p) => (
-              <Button key={p.label} href={p.href} color="primary" sx={{ textTransform: 'none' }}>
+              <Button
+                key={p.label}
+                href={p.href}
+                color="primary"
+                sx={{ textTransform: 'none' }}
+              >
                 {p.label}
               </Button>
             ))}
