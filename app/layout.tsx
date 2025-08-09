@@ -8,9 +8,6 @@ export const metadata: Metadata = {
   title: 'Yes Help Network',
   description: 'Connecting people to support, opportunities, and community.',
   metadataBase: new URL('https://yeshelpnetwork.github.io'),
-  icons: {
-    icon: '/icon.svg'
-  },
   openGraph: {
     title: 'Yes Help Network',
     description: 'Connecting people to support, opportunities, and community.',
