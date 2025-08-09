@@ -1,4 +1,4 @@
-# Yes Help Network site
+# yeshelpnetwork — Youth Empowerment Platform (Starter)
 
 A minimal Next.js + Tailwind CSS site configured for static export and GitHub Pages deployment.
 

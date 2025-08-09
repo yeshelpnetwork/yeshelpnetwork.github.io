@@ -20,7 +20,7 @@ export default function HomePage() {
                 Empowering young people to lead, create, and thrive
               </Typography>
               <Typography variant="body1" color="text.secondary" sx={{ mt: 1.5, maxWidth: 700 }}>
-                Empower connects youth with mentorship, skills training, and real-world opportunities.
+                yeshelpnetwork connects youth with mentorship, skills training, and real-world opportunities.
                 Join a community that helps you grow confidence and build a future you’re proud of.
               </Typography>
               <Box sx={{ display: 'flex', gap: 1.5, flexWrap: 'wrap', mt: 3 }}>
@@ -85,13 +85,13 @@ export default function HomePage() {
             Programs
           </Typography>
           <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 720 }}>
-            Practical pathways for growth — from leadership labs and tech bootcamps to community projects.
+            Explore our core offerings: Workshops, Community meetups, and Keynotes.
           </Typography>
           <Box sx={{ display: 'grid', gap: 3, mt: 2, gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: 'repeat(3, 1fr)' } }}>
             {[
-              { title: 'Mentorship Circles', desc: 'Small-group mentoring with leaders in tech, arts, and entrepreneurship.' },
-              { title: 'Skills Sprints', desc: 'Hands-on, project-based learning in design, coding, and media.' },
-              { title: 'Impact Projects', desc: 'Youth-led initiatives that drive local change and social good.' },
+              { title: 'Workshops', desc: 'Hands-on sessions to build practical skills with mentors and peers.' },
+              { title: 'Community Meetups', desc: 'Regular gatherings to connect, share projects, and collaborate.' },
+              { title: 'Keynotes', desc: 'Talks from leaders and creators to inspire action and learning.' },
             ].map((item) => (
               <Box key={item.title} sx={{ p: 3, borderRadius: 2, bgcolor: 'background.paper', border: 1, borderColor: 'divider', boxShadow: 1 }}>
                 <Typography variant="h6" fontWeight={600}>{item.title}</Typography>
@@ -110,7 +110,7 @@ export default function HomePage() {
             About
           </Typography>
           <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 900 }}>
-            We believe every young person deserves access to guidance, resources, and community. Empower is a
+            We believe every young person deserves access to guidance, resources, and community. yeshelpnetwork is a
             platform built to unlock potential through shared learning and real-world experience.
           </Typography>
           <Box sx={{ mt: 3 }}>
@@ -133,8 +133,8 @@ export default function HomePage() {
           </Typography>
           <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 720 }}>
             Want to sponsor a program, volunteer as a mentor, or partner with us? Email
-            <Box component="a" href="mailto:hello@empower.example" sx={{ ml: 0.5, color: 'primary.main', textDecoration: 'underline' }}>
-              hello@empower.example
+            <Box component="a" href="mailto:hello@yeshelpnetwork.example" sx={{ ml: 0.5, color: 'primary.main', textDecoration: 'underline' }}>
+              hello@yeshelpnetwork.example
             </Box>
           </Typography>
         </Container>
