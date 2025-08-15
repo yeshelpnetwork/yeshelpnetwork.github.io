@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import ThemeRegistry from './theme/ThemeRegistry';
 import HeaderBar from './ui/HeaderBar';
-import { Container, Typography } from '@mui/material';
+import { Container, Typography, Link as MUILink } from '@mui/material';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -26,12 +26,26 @@ export const metadata: Metadata = {
     'community',
     'prevention',
     'DFV awareness',
+    'domestic violence prevention',
+    'trauma informed care',
     'Parramatta',
     'Sydney',
     'Australia',
+    'Bashdemy',
+    'bashdemy.com',
+    'Bazhena Dementyeva',
+    'software engineer',
+    'web development',
+    'community platform development',
+    'nonprofit technology solutions',
   ],
-  authors: [{ name: 'Yes Help Network' }],
+  authors: [
+    { name: 'Yes Help Network' },
+    { name: 'Bazhena Dementyeva', url: 'https://bashdemy.com' },
+    { name: 'Bashdemy', url: 'https://bashdemy.com' },
+  ],
   creator: 'Yes Help Network',
+  generator: 'Bashdemy - Bazhena Dementyeva Software Engineer',
   publisher: 'Yes Help Network',
   alternates: {
     canonical: '/',
@@ -113,7 +127,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   color="text.secondary"
                   sx={{ textAlign: 'right' }}
                 >
-                  {new Date().getFullYear()} yeshelpnetwork © All rights reserved.
+                  {new Date().getFullYear()} yeshelpnetwork © All rights reserved
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{ textAlign: 'right', mt: 0.5 }}
+                >
+                  Built by{' '}
+                  <MUILink
+                    href="https://bashdemy.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    underline="hover"
+                  >
+                    bashdemy
+                  </MUILink>
+                  
                 </Typography>
               </Container>
             </footer>

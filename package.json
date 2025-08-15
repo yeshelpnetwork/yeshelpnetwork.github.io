@@ -13,29 +13,30 @@
     "prepare": "simple-git-hooks"
   },
   "dependencies": {
+    "@emotion/cache": "latest",
+    "@emotion/react": "latest",
+    "@emotion/styled": "latest",
+    "@eslint/eslintrc": "^3.3.1",
+    "@mui/icons-material": "latest",
+    "@mui/material": "latest",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest",
-    "@emotion/react": "latest",
-    "@emotion/cache": "latest",
-    "@emotion/styled": "latest",
-    "@mui/material": "latest",
-    "@mui/icons-material": "latest"
+    "react-dom": "latest"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "latest",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "@tailwindcss/postcss": "latest",
     "autoprefixer": "latest",
     "eslint": "latest",
     "eslint-config-next": "latest",
+    "lint-staged": "^16.1.5",
+    "next-sitemap": "^4.2.3",
     "postcss": "latest",
-    "tailwindcss": "latest",
-    "typescript": "latest",
-    "lint-staged": "latest",
     "simple-git-hooks": "latest",
-    "next-sitemap": "latest"
+    "tailwindcss": "latest",
+    "typescript": "latest"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint --fix --max-warnings=0"
@@ -44,4 +45,3 @@
     "pre-commit": "lint-staged"
   }
 }
-

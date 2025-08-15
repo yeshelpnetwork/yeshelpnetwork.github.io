@@ -38,40 +38,74 @@ export default function HomePage() {
   return (
     <Box>
       {/* Structured data: LocalBusiness + WebSite for rich results */}
-      <Script id="ld-json-localbusiness" type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'LocalBusiness',
-            name: 'Yes Help Network',
-            url: 'https://yeshelpnetwork.github.io/',
-            image: 'https://yeshelpnetwork.github.io/images/brand-lockup.png',
-            logo: 'https://yeshelpnetwork.github.io/images/logo-mark.png',
-            sameAs: ['https://www.instagram.com/yeshelpnetwork'],
-            address: {
-              '@type': 'PostalAddress',
-              addressLocality: 'Parramatta',
-              addressRegion: 'NSW',
-              addressCountry: 'AU',
-            },
-          }),
-        }}
-      />
-      <Script id="ld-json-website" type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'WebSite',
-            name: 'Yes Help Network',
-            url: 'https://yeshelpnetwork.github.io/',
-            potentialAction: {
-              '@type': 'SearchAction',
-              target: 'https://yeshelpnetwork.github.io/?q={search_term_string}',
-              'query-input': 'required name=search_term_string'
-            }
-          }),
-        }}
-      />
+      <Script
+        id="ld-json-localbusiness"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+      >
+        {JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'LocalBusiness',
+          name: 'Yes Help Network',
+          description: 'Empowering young people with resources, mentorship, and opportunities to grow and lead.',
+          url: 'https://yeshelpnetwork.github.io/',
+          image: 'https://yeshelpnetwork.github.io/images/brand-lockup.png',
+          logo: 'https://yeshelpnetwork.github.io/images/logo-mark.png',
+          sameAs: [
+            'https://www.instagram.com/yeshelpnetwork',
+            'https://bashdemy.com'
+          ],
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Parramatta',
+            addressRegion: 'NSW',
+            addressCountry: 'AU',
+          },
+          foundingDate: '2023',
+          founder: {
+            '@type': 'Person',
+            name: 'Yeshal Mansoor',
+            sameAs: 'https://bashdemy.com'
+          },
+          keywords: [
+            'youth empowerment',
+            'mentorship',
+            'domestic violence prevention',
+            'trauma awareness',
+            'community engagement',
+            'bashdemy',
+            'Bazhena Dementyeva'
+          ]
+        })}
+      </Script>
+      <Script
+        id="ld-json-website"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+      >
+        {JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: 'Yes Help Network',
+          url: 'https://yeshelpnetwork.github.io/',
+          description: 'Youth empowerment platform connecting young people with mentorship, skills training, and opportunities.',
+          keywords: [
+            'youth empowerment',
+            'mentorship program',
+            'skills training',
+            'domestic violence prevention',
+            'trauma informed care',
+            'community engagement',
+            'bashdemy.com',
+            'Bazhena Dementyeva software engineer'
+          ],
+          potentialAction: {
+            '@type': 'SearchAction',
+            target: 'https://yeshelpnetwork.github.io/?q={search_term_string}',
+            'query-input': 'required name=search_term_string'
+          }
+        })}
+      </Script>
       <Box component="section" sx={{ py: { xs: 6, sm: 10 }, bgcolor: 'background.default' }}>
         <Container>
           <Box sx={{
@@ -133,8 +167,8 @@ export default function HomePage() {
                     '#E97079',
                     '#75C6A8',
                     '#FBE3A1',
-                  ].map((hex, idx) => (
-                    <Box key={idx} sx={{ borderRadius: 1, bgcolor: hex }} />
+                  ].map((hex) => (
+                    <Box key={hex} sx={{ borderRadius: 1, bgcolor: hex }} />
                   ))}
                 </Box>
               </Box>
