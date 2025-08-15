@@ -12,6 +12,9 @@ dist/
 .next/cache/
 .next/types/
 
+# TypeScript
+*.tsbuildinfo
+
 # Logs
 logs
 *.log
