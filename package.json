@@ -42,6 +42,6 @@
     "*.{js,jsx,ts,tsx}": "eslint --fix --max-warnings=0"
   },
   "simple-git-hooks": {
-    "pre-commit": "lint-staged"
+    "pre-commit": "npx lint-staged"
   }
 }
