@@ -111,4 +111,4 @@ This project is proprietary. All rights reserved by Yes Help Network.
 
 ---
 
-Built with ❤️ for youth empowerment and community safety.
+Built by www.bashdemy.com with ❤️ for youth empowerment and community safety.
