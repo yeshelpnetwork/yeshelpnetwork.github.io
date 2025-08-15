@@ -99,6 +99,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name="emotion-insertion-point" content="" />
         <link rel="canonical" href="https://yeshelpnetwork.github.io/" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="google-site-verification" content="placeholder-for-google-search-console" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://www.instagram.com" />
+        <link rel="dns-prefetch" href="https://bashdemy.com" />
+        <link rel="dns-prefetch" href="https://www.eventbrite.com.au" />
       </head>
       <body>
         {/* Background floating ladybugs layer (decorative only) */}

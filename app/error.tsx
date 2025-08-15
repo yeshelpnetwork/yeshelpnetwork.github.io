@@ -12,8 +12,17 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    // Log the error to an error reporting service
-    console.error('Application error:', error);
+    // In production, log only necessary information to avoid exposing sensitive data
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Application error:', error);
+    } else {
+      // In production, log only the error type and digest for debugging
+      console.error('Application error occurred:', {
+        type: error.name || 'Unknown',
+        digest: error.digest || 'No digest',
+        timestamp: new Date().toISOString(),
+      });
+    }
   }, [error]);
 
   return (

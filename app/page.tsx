@@ -106,6 +106,43 @@ export default function HomePage() {
           }
         })}
       </Script>
+      <Script
+        id="ld-json-organization"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+      >
+        {JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'NonProfitOrganization',
+          name: 'Yes Help Network',
+          alternateName: 'YesHelpNetwork',
+          url: 'https://yeshelpnetwork.github.io/',
+          logo: 'https://yeshelpnetwork.github.io/images/logo-mark.png',
+          description: 'Youth empowerment platform addressing domestic and family violence through early intervention, mentorship, and community engagement.',
+          foundingDate: '2023',
+          areaServed: {
+            '@type': 'Place',
+            name: 'Parramatta, NSW, Australia'
+          },
+          sameAs: [
+            'https://www.instagram.com/yeshelpnetwork',
+            'https://bashdemy.com'
+          ],
+          founder: {
+            '@type': 'Person',
+            name: 'Yeshal Mansoor'
+          },
+          knowsAbout: [
+            'Youth Empowerment',
+            'Domestic Violence Prevention',
+            'Trauma-Informed Care',
+            'Community Engagement',
+            'Mentorship Programs',
+            'Skills Training'
+          ],
+          mission: 'Addressing the impact of Domestic & Family Violence through early intervention and youth empowerment.'
+        })}
+      </Script>
       <Box component="section" sx={{ py: { xs: 6, sm: 10 }, bgcolor: 'background.default' }}>
         <Container>
           <Box sx={{

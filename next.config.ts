@@ -7,7 +7,8 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   reactStrictMode: true,
   
-  // Security headers
+  // Security headers (Note: These won't work with static export/GitHub Pages.
+  // For GitHub Pages, security headers need to be set via _headers file or server config)
   async headers() {
     return [
       {
@@ -35,7 +36,15 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://schema.org; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self'; frame-ancestors 'none';"
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
+          },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=31536000; includeSubDomains; preload',
+          },
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
           }
         ],
       },
