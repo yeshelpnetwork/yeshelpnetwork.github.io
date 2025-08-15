@@ -66,9 +66,39 @@ This project is configured for static export and GitHub Pages deployment:
 3. All security headers are pre-configured
 4. Images are optimized for static hosting
 
+## Dependency Management & Security
+
+### Dependabot Configuration
+This project uses Dependabot for automated dependency updates with the following safety measures:
+
+- **Conservative Updates**: Only minor and patch updates are auto-merged
+- **Major Version Control**: Major updates require manual review
+- **Security First**: Security updates are always allowed regardless of semver
+- **Grouped Updates**: Related packages are updated together to prevent conflicts
+- **Limited PRs**: Maximum of 3 open dependency PRs at once
+
+### Critical Dependencies Requiring Manual Review
+- **React/Next.js**: Major versions often include breaking changes
+- **MUI Components**: Theme and API changes can break styling
+- **TypeScript**: Stricter checking can cause build failures
+- **ESLint**: Rule changes can break CI/CD pipelines
+
+### Monitoring & Maintenance
+- Weekly automated security audits via GitHub Actions
+- CodeQL analysis for vulnerability detection
+- TruffleHog scanning for exposed secrets
+- Comprehensive testing before dependency merges
+
 ## Contributing
 
 This is a community-focused project. We welcome contributions that align with our mission of youth empowerment and violence prevention.
+
+### Dependency Update Guidelines
+1. **Test Locally**: Always test dependency updates in a local environment
+2. **Check Breaking Changes**: Review changelogs for breaking changes
+3. **Update Tests**: Ensure all tests pass with new dependencies
+4. **Monitor CI**: Watch GitHub Actions for any failures
+5. **Gradual Rollout**: Update dependencies in small, focused groups
 
 ## License
 
