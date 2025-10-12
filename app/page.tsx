@@ -4,7 +4,7 @@ import Script from 'next/script';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Empowering young people to lead, create, and thrive',
+  title: 'Empowering young people to lead, create and thrive',
   description:
     'yeshelpnetwork connects youth with mentorship, skills training, and opportunities to grow and lead.',
   alternates: { canonical: '/' },
@@ -153,7 +153,7 @@ export default function HomePage() {
           }}>
             <Box>
               <Typography component="h1" gutterBottom sx={{ typography: { xs: 'h4', md: 'h3' }, fontWeight: 700 }}>
-                Empowering young people to lead, create, and thrive
+                Empowering young people to lead, create and thrive
               </Typography>
               <Typography variant="body1" color="text.secondary" sx={{ mt: 1.5, maxWidth: 700 }}>
                 yeshelpnetwork connects youth with mentorship, skills training, and real-world opportunities.
