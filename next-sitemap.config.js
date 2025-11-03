@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://yeshelpnetwork.github.io',
+  siteUrl: 'https://yeshelpnetwork.com',
   generateRobotsTxt: true,
   outDir: 'out',
   trailingSlash: true,
@@ -30,9 +30,8 @@ module.exports = {
       },
     ],
     additionalSitemaps: [
-      'https://yeshelpnetwork.github.io/sitemap.xml',
+      'https://yeshelpnetwork.com/sitemap.xml',
     ],
   },
 };
-
 

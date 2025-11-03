@@ -13,7 +13,7 @@ import Image from 'next/image';
 const pages = [
   { label: 'About', href: '#about' },
   { label: 'Programs', href: '#programs' },
-  { label: 'Events', href: '#events' },
+  { label: 'Past Events', href: '#past-events' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -45,5 +45,4 @@ export default function HeaderBar() {
     </AppBar>
   );
 }
-
 

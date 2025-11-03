@@ -6,12 +6,24 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Empowering young people to lead, create and thrive',
   description:
-    'yeshelpnetwork connects youth with mentorship, skills training, and opportunities to grow and lead.',
+    'Yes Help Network connects youth in Sydney with mentorship, skills training, and opportunities to grow and lead.',
+  keywords: [
+    'yes help network',
+    'yeshelp network',
+    'yeshelpnetwork',
+    'yeshelpnetwork.com',
+    'youth empowerment',
+    'youth help',
+    'youth help sydney',
+    'youth services sydney',
+    'Yeshal Mansoor',
+    'Yeshal Mansoor Yes Help Network',
+  ],
   alternates: { canonical: '/' },
   openGraph: {
     title: 'Empowering young people to lead, create, and thrive',
     description:
-      'yeshelpnetwork connects youth with mentorship, skills training, and opportunities to grow and lead.',
+      'Yes Help Network connects youth in Sydney with mentorship, skills training, and opportunities to grow and lead.',
     url: '/',
     images: [
       {
@@ -26,7 +38,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Empowering young people to lead, create, and thrive',
     description:
-      'yeshelpnetwork connects youth with mentorship, skills training, and opportunities to grow and lead.',
+      'Yes Help Network connects youth in Sydney with mentorship, skills training, and opportunities to grow and lead.',
     images: ['/images/hero-group.png'],
   },
 };
@@ -34,6 +46,36 @@ export const metadata: Metadata = {
 export default function HomePage() {
   const eventUrl =
     'https://www.eventbrite.com.au/e/safe-spaces-for-real-conversations-tickets-1550262048519?aff=oddtdtcreator';
+
+  const pastEvents = [
+    {
+      title: 'World Mental Health Day: Speed Friending',
+      org: '@yeshelpnetwork × @headspaceparramatta',
+      summary:
+        'A fun, interactive afternoon to meet new people, build friendships and feel connected. Free snacks and goodie bags.',
+      chips: ['Fri 10 Oct · 1:30–4:30 PM', 'Ages 12–17 & 18–25'],
+      link: 'https://www.instagram.com/yeshelpnetwork',
+      tags: ['#Community', '#Wellbeing'],
+    },
+    {
+      title: 'Youth‑Led Festival: Wellbeing Journey',
+      org: '@kuringgai_council',
+      summary:
+        'Talk on “Taking Steps on Your Wellbeing Journey” — aligning our work with youth empowerment and mental wellbeing.',
+      chips: ['Talk', 'Youth‑led festival'],
+      link: 'https://www.instagram.com/yeshelpnetwork',
+      tags: ['#Wellbeing', '#Youth'],
+    },
+    {
+      title: 'Under 25s Meetup @ SXSW Sydney',
+      org: '@sxswsydney',
+      summary:
+        'A relaxed meetup to connect with other young people, share ideas and make the most of SXSW Unlocked.',
+      chips: ['Wed 15 Oct · 4:30–5:30 PM', 'Tumbalong Park, Darling Harbour'],
+      link: 'https://www.instagram.com/yeshelpnetwork',
+      tags: ['#SXSWSydney'],
+    },
+  ];
 
   return (
     <Box>
@@ -47,13 +89,15 @@ export default function HomePage() {
           '@context': 'https://schema.org',
           '@type': 'LocalBusiness',
           name: 'Yes Help Network',
-          description: 'Empowering young people with resources, mentorship, and opportunities to grow and lead.',
-          url: 'https://yeshelpnetwork.github.io/',
-          image: 'https://yeshelpnetwork.github.io/images/brand-lockup.png',
-          logo: 'https://yeshelpnetwork.github.io/images/logo-mark.png',
+          description: 'Empowering young people in Sydney with resources, mentorship, and opportunities to grow and lead.',
+          url: 'https://yeshelpnetwork.com/',
+          image: 'https://yeshelpnetwork.com/images/brand-lockup.png',
+          logo: 'https://yeshelpnetwork.com/images/logo-mark.png',
           sameAs: [
+            'https://yeshelpnetwork.com',
+            'https://yeshelpnetwork.github.io',
             'https://www.instagram.com/yeshelpnetwork',
-            'https://bashdemy.com'
+            'https://www.linkedin.com/company/yes-help-au/'
           ],
           address: {
             '@type': 'PostalAddress',
@@ -62,19 +106,51 @@ export default function HomePage() {
             addressCountry: 'AU',
           },
           foundingDate: '2023',
+          '@id': 'https://yeshelpnetwork.com/#localbusiness',
           founder: {
             '@type': 'Person',
             name: 'Yeshal Mansoor',
-            sameAs: 'https://bashdemy.com'
+            sameAs: [
+              'https://www.linkedin.com/in/yeshal-mansoor/',
+              'https://www.instagram.com/yeshelpnetwork'
+            ]
           },
           keywords: [
             'youth empowerment',
+            'youth help',
+            'youth help sydney',
             'mentorship',
             'domestic violence prevention',
             'trauma awareness',
             'community engagement',
-            'bashdemy',
-            'Bazhena Dementyeva'
+            'Yeshal Mansoor'
+          ]
+        })}
+      </Script>
+      <Script
+        id="ld-json-founder"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+      >
+        {JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Person',
+          name: 'Yeshal Mansoor',
+          url: 'https://www.linkedin.com/in/yeshal-mansoor/',
+          jobTitle: 'Founder',
+          sameAs: [
+            'https://www.linkedin.com/in/yeshal-mansoor/',
+            'https://www.instagram.com/yeshelpnetwork'
+          ],
+          worksFor: {
+            '@type': 'Organization',
+            name: 'Yes Help Network',
+            '@id': 'https://yeshelpnetwork.com/#organization'
+          },
+          knowsAbout: [
+            'Youth Empowerment',
+            'Community Engagement',
+            'Domestic & Family Violence Prevention'
           ]
         })}
       </Script>
@@ -87,21 +163,33 @@ export default function HomePage() {
           '@context': 'https://schema.org',
           '@type': 'WebSite',
           name: 'Yes Help Network',
-          url: 'https://yeshelpnetwork.github.io/',
-          description: 'Youth empowerment platform connecting young people with mentorship, skills training, and opportunities.',
+          url: 'https://yeshelpnetwork.com/',
+          description: 'Youth empowerment platform in Sydney connecting young people with mentorship, skills training, and opportunities.',
           keywords: [
+            'yes help network',
+            'yeshelp network',
+            'yeshelpnetwork',
+            'yeshelpnetwork.com',
             'youth empowerment',
+            'youth help',
+            'youth help sydney',
             'mentorship program',
             'skills training',
             'domestic violence prevention',
             'trauma informed care',
             'community engagement',
-            'bashdemy.com',
-            'Bazhena Dementyeva software engineer'
+            'Yeshal Mansoor'
           ],
+          sameAs: [
+            'https://yeshelpnetwork.com',
+            'https://yeshelpnetwork.github.io',
+            'https://www.instagram.com/yeshelpnetwork',
+            'https://www.linkedin.com/company/yes-help-au/'
+          ],
+          '@id': 'https://yeshelpnetwork.com/#website',
           potentialAction: {
             '@type': 'SearchAction',
-            target: 'https://yeshelpnetwork.github.io/?q={search_term_string}',
+            target: 'https://yeshelpnetwork.com/?q={search_term_string}',
             'query-input': 'required name=search_term_string'
           }
         })}
@@ -115,22 +203,34 @@ export default function HomePage() {
           '@context': 'https://schema.org',
           '@type': 'NonProfitOrganization',
           name: 'Yes Help Network',
-          alternateName: 'YesHelpNetwork',
-          url: 'https://yeshelpnetwork.github.io/',
-          logo: 'https://yeshelpnetwork.github.io/images/logo-mark.png',
+          alternateName: [
+            'YesHelpNetwork',
+            'Yes Help Network',
+            'YesHelp Network',
+            'yeshelpnetwork',
+            'yeshelpnetwork.com'
+          ],
+          url: 'https://yeshelpnetwork.com/',
+          logo: 'https://yeshelpnetwork.com/images/logo-mark.png',
           description: 'Youth empowerment platform addressing domestic and family violence through early intervention, mentorship, and community engagement.',
           foundingDate: '2023',
+          '@id': 'https://yeshelpnetwork.com/#organization',
           areaServed: {
             '@type': 'Place',
             name: 'Parramatta, NSW, Australia'
           },
           sameAs: [
+            'https://yeshelpnetwork.com',
+            'https://yeshelpnetwork.github.io',
             'https://www.instagram.com/yeshelpnetwork',
-            'https://bashdemy.com'
+            'https://www.linkedin.com/company/yes-help-au/'
           ],
           founder: {
             '@type': 'Person',
-            name: 'Yeshal Mansoor'
+            name: 'Yeshal Mansoor',
+            sameAs: [
+              'https://www.linkedin.com/in/yeshal-mansoor/'
+            ]
           },
           knowsAbout: [
             'Youth Empowerment',
@@ -156,7 +256,7 @@ export default function HomePage() {
                 Empowering young people to lead, create and thrive
               </Typography>
               <Typography variant="body1" color="text.secondary" sx={{ mt: 1.5, maxWidth: 700 }}>
-                yeshelpnetwork connects youth with mentorship, skills training, and real-world opportunities.
+                yeshelpnetwork connects youth in Sydney with mentorship, skills training, and real-world opportunities.
                 Join a community that helps you grow confidence and build a future you’re proud of.
               </Typography>
               <Box sx={{ display: 'flex', gap: 1.5, flexWrap: 'wrap', mt: 3 }}>
@@ -268,62 +368,69 @@ export default function HomePage() {
         </Container>
       </Box>
 
-      <Box component="section" id="events" sx={{ py: { xs: 6, sm: 10 } }}>
+      <Box component="section" id="past-events" sx={{ py: { xs: 6, sm: 10 } }}>
         <Container>
           <Typography variant="h4" component="h2" fontWeight={700} gutterBottom>
-            Current Events
+            Past Events
           </Typography>
-          <Card
-            sx={{
-              mt: 2,
-              overflow: 'hidden',
-              borderRadius: 2,
-              bgcolor: 'background.paper',
-              border: 1,
-              borderColor: 'divider',
-              boxShadow: 1,
-              transition: 'box-shadow 200ms ease, border-color 200ms ease',
-              '&:hover': {
-                boxShadow: 3,
-                borderColor: 'primary.light',
-              },
-            }}
-            aria-labelledby="event-ssrc-title"
-          >
-            <Box sx={{ height: 6, bgcolor: 'primary.main', opacity: 0.8 }} />
-            <CardContent sx={{ p: { xs: 2.5, sm: 3 } }}>
-              <Typography id="event-ssrc-title" variant="h6" fontWeight={700} gutterBottom>
-                Safe Spaces for Real Conversations
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                By headspace Parramatta
-              </Typography>
-
-              <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mt: 1.5 }}>
-                <Chip label="Thu, Aug 21 · 6–7:30pm AEST" size="small" />
-                <Chip label="Parramatta, NSW" size="small" variant="outlined" />
-                <Chip label="Ages 16–25" size="small" variant="outlined" />
-                <Chip label="Free bubble tea 🧋" size="small" />
-              </Stack>
-
-              <Typography variant="body2" color="text.secondary" sx={{ mt: 1.5 }}>
-                A 90-minute, trauma-informed workshop for young people to connect, reflect, and speak openly about
-                mental health. Facilitated by Yeshal Mansoor, founder of the Yes Help Network.
-              </Typography>
-            </CardContent>
-            <CardActions sx={{ px: { xs: 2.5, sm: 3 }, pb: 3, pt: 0 }}>
-              <Button
-                href={eventUrl}
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                variant="contained"
-                color="primary"
-                aria-label="Open Eventbrite listing for Safe Spaces for Real Conversations (opens in a new tab)"
+          <Box sx={{
+            display: 'grid',
+            gap: 2,
+            gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: 'repeat(3, 1fr)' },
+            mt: 2,
+          }}>
+            {pastEvents.map((evt) => (
+              <Card
+                key={evt.title}
+                sx={{
+                  overflow: 'hidden',
+                  borderRadius: 2,
+                  bgcolor: 'background.paper',
+                  border: 1,
+                  borderColor: 'divider',
+                  boxShadow: 1,
+                  '&:hover': { boxShadow: 3, borderColor: 'primary.light' },
+                }}
               >
-                Get tickets on Eventbrite
-              </Button>
-            </CardActions>
-          </Card>
+                <Box sx={{ height: 4, bgcolor: 'primary.main', opacity: 0.8 }} />
+                <CardContent sx={{ p: 2 }}>
+                  <Typography variant="subtitle1" fontWeight={700} gutterBottom>
+                    {evt.title}
+                  </Typography>
+                  <Typography variant="caption" color="text.secondary">
+                    {evt.org}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+                    {evt.summary}
+                  </Typography>
+                  <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mt: 1 }}>
+                    {evt.chips.map((c) => (
+                      <Chip key={c} label={c} size="small" variant="outlined" />
+                    ))}
+                  </Stack>
+                  {evt.tags && evt.tags.length > 0 && (
+                    <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mt: 1 }}>
+                      {evt.tags.map((t) => (
+                        <Chip key={t} label={t} size="small" color="primary" variant="filled" />
+                      ))}
+                    </Stack>
+                  )}
+                </CardContent>
+                <CardActions sx={{ px: 2, pb: 2, pt: 0 }}>
+                  <Button
+                    href={evt.link}
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    size="small"
+                    variant="text"
+                    aria-label={`Open Instagram post for ${evt.title} (opens in a new tab)`}
+                  >
+                    View post
+                  </Button>
+                </CardActions>
+              </Card>
+            ))}
+          </Box>
         </Container>
       </Box>
 
@@ -345,7 +452,7 @@ export default function HomePage() {
               </Typography>
 
               <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 900, mb: 2 }}>
-                Yes Help Network was born from a personal turning point. At 21, our founder, Yeshal, chose to step out of
+                Yes Help Network was born from a personal turning point. At 21, our founder, Yeshal Mansoor, chose to step out of
                 years of shyness to find her voice through youth organisations, councils, and community engagement. That
                 journey revealed a mission that matters: <b>addressing the impact of Domestic & Family Violence (DFV)</b> through
                 early intervention.
@@ -404,24 +511,37 @@ export default function HomePage() {
           <Box sx={{ mt: 1.5, border: 1, borderColor: 'divider', borderRadius: 2, p: { xs: 2, sm: 2.5 }, bgcolor: 'background.paper' }}>
             <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr auto' }, alignItems: 'center', gap: 2 }}>
               <Typography variant="body1" color="text.secondary">
-                Want to sponsor a program, volunteer as a mentor, or partner with us? Connect on Instagram.
+                Want to sponsor a program, volunteer as a mentor, or partner with us? Connect on Instagram or LinkedIn.
               </Typography>
-              <Box
-                component="a"
-                href="https://www.instagram.com/yeshelpnetwork"
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                sx={{ color: 'primary.main', textDecoration: 'underline', fontWeight: 600, whiteSpace: 'nowrap', justifySelf: { sm: 'end' } }}
-                aria-label="Open Instagram profile @yeshelpnetwork (opens in a new tab)"
-              >
-                @yeshelpnetwork
-              </Box>
+              <Stack direction="row" spacing={2} sx={{ justifySelf: { sm: 'end' } }}>
+                <Box
+                  component="a"
+                  href="https://www.instagram.com/yeshelpnetwork"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  sx={{ color: 'primary.main', textDecoration: 'underline', fontWeight: 600, whiteSpace: 'nowrap' }}
+                  aria-label="Open Instagram profile @yeshelpnetwork (opens in a new tab)"
+                >
+                  @yeshelpnetwork
+                </Box>
+                <Box
+                  component="a"
+                  href="https://www.linkedin.com/company/yes-help-au/"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  sx={{ color: 'primary.main', textDecoration: 'underline', fontWeight: 600, whiteSpace: 'nowrap' }}
+                  aria-label="Open LinkedIn company page (opens in a new tab)"
+                >
+                  LinkedIn
+                </Box>
+              </Stack>
             </Box>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: 1.5 }}>
+              Founder: <Box component="a" href="https://www.linkedin.com/in/yeshal-mansoor/" target="_blank" rel="noopener noreferrer nofollow" sx={{ color: 'primary.main', textDecoration: 'underline', fontWeight: 600 }}>Yeshal Mansoor</Box>
+            </Typography>
           </Box>
         </Container>
       </Box>
     </Box>
   );
 }
-
-

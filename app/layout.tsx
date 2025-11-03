@@ -11,16 +11,25 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://yeshelpnetwork.github.io'),
+  metadataBase: new URL('https://yeshelpnetwork.com'),
   title: {
     default: 'Yes Help Network | Youth Empowerment Platform',
     template: '%s | Yes Help Network',
   },
   description:
-    'Empowering young people with resources, mentorship, and opportunities.',
+    'Yes Help Network empowers young people in Sydney with resources, mentorship, and opportunities.',
   applicationName: 'Yes Help Network',
   keywords: [
+    'yes help network',
+    'yeshelp network',
+    'yeshelpnetwork',
+    'yeshelpnetwork.com',
     'youth empowerment',
+    'youth help',
+    'youth help sydney',
+    'youth services sydney',
+    'Yeshal Mansoor',
+    'Yeshal Mansoor Yes Help Network',
     'mentorship',
     'skills training',
     'community',
@@ -41,6 +50,7 @@ export const metadata: Metadata = {
   ],
   authors: [
     { name: 'Yes Help Network' },
+    { name: 'Yeshal Mansoor', url: 'https://www.linkedin.com/in/yeshal-mansoor/' },
     { name: 'Bazhena Dementyeva', url: 'https://bashdemy.com' },
     { name: 'Bashdemy', url: 'https://bashdemy.com' },
   ],
@@ -64,7 +74,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Yes Help Network | Youth Empowerment Platform',
     description:
-      'Empowering young people with resources, mentorship, and opportunities.',
+      'Yes Help Network empowers young people in Sydney with resources, mentorship, and opportunities.',
     url: '/',
     siteName: 'Yes Help Network',
     locale: 'en_AU',
@@ -82,7 +92,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Yes Help Network | Youth Empowerment Platform',
     description:
-      'Empowering young people with resources, mentorship, and opportunities.',
+      'Yes Help Network empowers young people in Sydney with resources, mentorship, and opportunities.',
     site: '@yeshelpnetwork',
     images: ['/images/hero-group.png'],
   },
@@ -98,7 +108,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <head>
         <meta name="emotion-insertion-point" content="" />
-        <link rel="canonical" href="https://yeshelpnetwork.github.io/" />
+        <link rel="canonical" href="https://yeshelpnetwork.com/" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="google-site-verification" content="placeholder-for-google-search-console" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -159,5 +169,3 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
-
-
