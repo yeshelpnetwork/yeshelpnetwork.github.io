@@ -5,6 +5,7 @@ import './globals.css';
 import ThemeRegistry from './theme/ThemeRegistry';
 import HeaderBar from './ui/HeaderBar';
 import SkyBackdrop from './ui/SkyBackdrop';
+import { FOUNDER_LINKEDIN_URL, SITE_URL } from './site';
 
 const bodyFont = Nunito({
   subsets: ['latin'],
@@ -27,7 +28,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://yeshelpnetwork.com'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'Yes Help Network | Youth Empowerment Platform',
     template: '%s | Yes Help Network',
@@ -66,7 +67,7 @@ export const metadata: Metadata = {
   ],
   authors: [
     { name: 'Yes Help Network' },
-    { name: 'Yeshal Mansoor', url: 'https://www.linkedin.com/in/yeshal-mansoor/' },
+    { name: 'Yeshal Mansoor', url: FOUNDER_LINKEDIN_URL },
     { name: 'Bazhena Dementyeva', url: 'https://bashdemy.com' },
     { name: 'Bashdemy', url: 'https://bashdemy.com' },
   ],
@@ -124,12 +125,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${bodyFont.variable} ${displayFont.variable}`}>
       <head>
         <meta name="emotion-insertion-point" content="" />
-        <link rel="canonical" href="https://yeshelpnetwork.com/" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="google-site-verification" content="placeholder-for-google-search-console" />
         <link rel="dns-prefetch" href="https://www.instagram.com" />
         <link rel="dns-prefetch" href="https://bashdemy.com" />
-        <link rel="dns-prefetch" href="https://www.eventbrite.com.au" />
       </head>
       <body className={bodyFont.className}>
         <SkyBackdrop />

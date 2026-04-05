@@ -11,19 +11,19 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const isDevelopment = process.env.NODE_ENV === 'development';
+
   useEffect(() => {
-    // In production, log only necessary information to avoid exposing sensitive data
-    if (process.env.NODE_ENV === 'development') {
-      console.error('Application error:', error);
-    } else {
-      // In production, log only the error type and digest for debugging
-      console.error('Application error occurred:', {
-        type: error.name || 'Unknown',
-        digest: error.digest || 'No digest',
-        timestamp: new Date().toISOString(),
-      });
-    }
-  }, [error]);
+    const payload = isDevelopment
+      ? error
+      : {
+          type: error.name || 'Unknown',
+          digest: error.digest || 'No digest',
+          timestamp: new Date().toISOString(),
+        };
+
+    console.error('Application error:', payload);
+  }, [error, isDevelopment]);
 
   return (
     <Container maxWidth="md">
@@ -79,7 +79,7 @@ export default function Error({
           </Button>
         </Box>
 
-        {process.env.NODE_ENV === 'development' && error.message && (
+        {isDevelopment && error.message && (
           <Box
             sx={{
               mt: 4,

@@ -1,6 +1,7 @@
 import { Box, Button, Container, Typography } from '@mui/material';
 import { SearchOff } from '@mui/icons-material';
 import type { Metadata } from 'next';
+import { INSTAGRAM_URL } from './site';
 
 export const metadata: Metadata = {
   title: 'Page Not Found',
@@ -84,7 +85,7 @@ export default function NotFound() {
             Need help? Contact us at{' '}
             <Box
               component="a"
-              href="https://www.instagram.com/yeshelpnetwork"
+              href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer nofollow"
               sx={{ 

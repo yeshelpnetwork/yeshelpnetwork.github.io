@@ -13,6 +13,20 @@ import {
 import Image from 'next/image';
 import Script from 'next/script';
 import type { Metadata } from 'next';
+import type { CSSProperties } from 'react';
+import {
+  BRAND_LOCKUP_URL,
+  FOUNDER_LINKEDIN_URL,
+  FOUNDER_SAME_AS,
+  INSTAGRAM_URL,
+  LINKEDIN_COMPANY_URL,
+  LOCAL_BUSINESS_ID,
+  LOGO_URL,
+  ORGANIZATION_ID,
+  ORGANIZATION_SAME_AS,
+  SITE_URL,
+  WEBSITE_ID,
+} from './site';
 
 const panelRadiusSx = { xs: '34px', sm: '42px' };
 const cardRadius = '32px';
@@ -108,6 +122,18 @@ const sectionCardGridSx = {
   mt: 2.5,
   alignItems: 'stretch',
   gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: 'repeat(3, 1fr)' },
+};
+type ProgramCard = {
+  title: string;
+  desc: string;
+  kicker: string;
+  imgSrc: string;
+  imgAlt: string;
+  imgFit: CSSProperties['objectFit'];
+  imgPosition: string;
+  imgFrameRatio: string;
+  imgInset: string;
+  imgBg: string;
 };
 
 function SectionHeading({
@@ -208,8 +234,6 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const eventUrl = '#events';
-
   const heroHighlights = ['Creative workshops', 'Safe conversations', 'Youth-led community'];
   const heroCards = [
     {
@@ -225,7 +249,7 @@ export default function HomePage() {
       body: 'Events that build community.',
     },
   ];
-  const programs = [
+  const programs: ProgramCard[] = [
     {
       title: 'Workshops',
       desc: 'Hands-on sessions that build practical skills with mentors and peers.',
@@ -270,7 +294,7 @@ export default function HomePage() {
     summary:
       'Coffee art workshop, fun activities, free food, and empowering circles for young people in Parramatta.',
     chips: ['Sat 18 Apr 2026 · 2:00-5:00 PM', 'Parramatta (TBC)'],
-    link: 'https://www.instagram.com/yeshelpnetwork',
+    link: INSTAGRAM_URL,
     tags: ['#YouthWeek', '#Art', '#Wellbeing'],
     status: 'Upcoming',
     ctaLabel: 'Get updates',
@@ -286,7 +310,7 @@ export default function HomePage() {
       summary:
         'A fun, interactive afternoon to meet new people, build friendships and feel connected. Free snacks and goodie bags.',
       chips: ['Fri 10 Oct · 1:30-4:30 PM', 'Ages 12-17 & 18-25'],
-      link: 'https://www.instagram.com/yeshelpnetwork',
+      link: INSTAGRAM_URL,
       tags: ['#Community', '#Wellbeing'],
       imgSrc: '/images/hero-group.png',
       imgAlt: 'Group photo from a Yes Help Network event',
@@ -299,7 +323,7 @@ export default function HomePage() {
       summary:
         'Talk on "Taking Steps on Your Wellbeing Journey" - aligning our work with youth empowerment and mental wellbeing.',
       chips: ['Talk', 'Youth-led festival'],
-      link: 'https://www.instagram.com/yeshelpnetwork',
+      link: INSTAGRAM_URL,
       tags: ['#Wellbeing', '#Youth'],
       imgSrc: '/images/founder-portrait.png',
       imgAlt: 'Founder speaking about wellbeing and youth empowerment',
@@ -312,7 +336,7 @@ export default function HomePage() {
       summary:
         'A relaxed meetup to connect with other young people, share ideas and make the most of SXSW Unlocked.',
       chips: ['Wed 15 Oct · 4:30-5:30 PM', 'Tumbalong Park, Darling Harbour'],
-      link: 'https://www.instagram.com/yeshelpnetwork',
+      link: INSTAGRAM_URL,
       tags: ['#SXSWSydney'],
       imgSrc: '/images/insight-integrational-trauma.png',
       imgAlt: 'Artwork used for a wellbeing-focused Yes Help Network event',
@@ -347,15 +371,10 @@ export default function HomePage() {
           name: 'Yes Help Network',
           description:
             'Empowering young people in Sydney with resources, mentorship, and opportunities to grow and lead.',
-          url: 'https://yeshelpnetwork.com/',
-          image: 'https://yeshelpnetwork.com/images/brand-lockup.png',
-          logo: 'https://yeshelpnetwork.com/images/logo-mark.png',
-          sameAs: [
-            'https://yeshelpnetwork.com',
-            'https://yeshelpnetwork.github.io',
-            'https://www.instagram.com/yeshelpnetwork',
-            'https://www.linkedin.com/company/yes-help-au/',
-          ],
+          url: SITE_URL,
+          image: BRAND_LOCKUP_URL,
+          logo: LOGO_URL,
+          sameAs: ORGANIZATION_SAME_AS,
           address: {
             '@type': 'PostalAddress',
             addressLocality: 'Parramatta',
@@ -363,14 +382,11 @@ export default function HomePage() {
             addressCountry: 'AU',
           },
           foundingDate: '2023',
-          '@id': 'https://yeshelpnetwork.com/#localbusiness',
+          '@id': LOCAL_BUSINESS_ID,
           founder: {
             '@type': 'Person',
             name: 'Yeshal Mansoor',
-            sameAs: [
-              'https://www.linkedin.com/in/yeshal-mansoor/',
-              'https://www.instagram.com/yeshelpnetwork',
-            ],
+            sameAs: FOUNDER_SAME_AS,
           },
           keywords: [
             'youth empowerment',
@@ -389,16 +405,13 @@ export default function HomePage() {
           '@context': 'https://schema.org',
           '@type': 'Person',
           name: 'Yeshal Mansoor',
-          url: 'https://www.linkedin.com/in/yeshal-mansoor/',
+          url: FOUNDER_LINKEDIN_URL,
           jobTitle: 'Founder',
-          sameAs: [
-            'https://www.linkedin.com/in/yeshal-mansoor/',
-            'https://www.instagram.com/yeshelpnetwork',
-          ],
+          sameAs: FOUNDER_SAME_AS,
           worksFor: {
             '@type': 'Organization',
             name: 'Yes Help Network',
-            '@id': 'https://yeshelpnetwork.com/#organization',
+            '@id': ORGANIZATION_ID,
           },
           knowsAbout: [
             'Youth Empowerment',
@@ -412,7 +425,7 @@ export default function HomePage() {
           '@context': 'https://schema.org',
           '@type': 'WebSite',
           name: 'Yes Help Network',
-          url: 'https://yeshelpnetwork.com/',
+          url: SITE_URL,
           description:
             'Youth empowerment platform in Sydney connecting young people with mentorship, skills training, and opportunities.',
           keywords: [
@@ -430,16 +443,11 @@ export default function HomePage() {
             'community engagement',
             'Yeshal Mansoor',
           ],
-          sameAs: [
-            'https://yeshelpnetwork.com',
-            'https://yeshelpnetwork.github.io',
-            'https://www.instagram.com/yeshelpnetwork',
-            'https://www.linkedin.com/company/yes-help-au/',
-          ],
-          '@id': 'https://yeshelpnetwork.com/#website',
+          sameAs: ORGANIZATION_SAME_AS,
+          '@id': WEBSITE_ID,
           potentialAction: {
             '@type': 'SearchAction',
-            target: 'https://yeshelpnetwork.com/?q={search_term_string}',
+            target: `${SITE_URL}?q={search_term_string}`,
             'query-input': 'required name=search_term_string',
           },
         })}
@@ -460,26 +468,21 @@ export default function HomePage() {
             'yeshelpnetwork',
             'yeshelpnetwork.com',
           ],
-          url: 'https://yeshelpnetwork.com/',
-          logo: 'https://yeshelpnetwork.com/images/logo-mark.png',
+          url: SITE_URL,
+          logo: LOGO_URL,
           description:
             'Youth empowerment platform addressing domestic and family violence through early intervention, mentorship, and community engagement.',
           foundingDate: '2023',
-          '@id': 'https://yeshelpnetwork.com/#organization',
+          '@id': ORGANIZATION_ID,
           areaServed: {
             '@type': 'Place',
             name: 'Parramatta, NSW, Australia',
           },
-          sameAs: [
-            'https://yeshelpnetwork.com',
-            'https://yeshelpnetwork.github.io',
-            'https://www.instagram.com/yeshelpnetwork',
-            'https://www.linkedin.com/company/yes-help-au/',
-          ],
+          sameAs: ORGANIZATION_SAME_AS,
           founder: {
             '@type': 'Person',
             name: 'Yeshal Mansoor',
-            sameAs: ['https://www.linkedin.com/in/yeshal-mansoor/'],
+            sameAs: [FOUNDER_LINKEDIN_URL],
           },
           knowsAbout: [
             'Youth Empowerment',
@@ -602,7 +605,7 @@ export default function HomePage() {
                     Explore Programs
                   </Button>
                   <Button
-                    href={eventUrl}
+                    href="#events"
                     variant="outlined"
                     color="primary"
                     size="large"
@@ -1193,7 +1196,7 @@ export default function HomePage() {
               </Typography>
               <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5} sx={{ justifySelf: { md: 'end' } }}>
                 <Button
-                  href="https://www.instagram.com/yeshelpnetwork"
+                  href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
                   variant="contained"
@@ -1203,7 +1206,7 @@ export default function HomePage() {
                   Instagram
                 </Button>
                 <Button
-                  href="https://www.linkedin.com/company/yes-help-au/"
+                  href={LINKEDIN_COMPANY_URL}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
                   variant="outlined"
@@ -1228,7 +1231,7 @@ export default function HomePage() {
               </Typography>
               <Box
                 component="a"
-                href="https://www.linkedin.com/in/yeshal-mansoor/"
+                href={FOUNDER_LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 sx={{ color: 'primary.main', textDecoration: 'none', fontWeight: 800 }}

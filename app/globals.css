@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 :root {
-  --background: 231 247 255;
   --foreground: 23 50 75;
   --sky-top: #69c7f2;
   --sky-mid: #9ddfff;

@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { type ReactNode, useMemo } from 'react';
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
 import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
@@ -165,8 +165,8 @@ const theme = createTheme({
   },
 });
 
-export default function ThemeRegistry({ children }: { children: React.ReactNode }) {
-  const cache = React.useMemo(() => createEmotionCache(), []);
+export default function ThemeRegistry({ children }: { children: ReactNode }) {
+  const cache = useMemo(() => createEmotionCache(), []);
   return (
     <CacheProvider value={cache}>
       <ThemeProvider theme={theme}>
