@@ -912,18 +912,19 @@ export default function HomePage() {
             {displayedEvents.map((evt) => (
               <Card
                 key={evt.title}
-                sx={{
-                  ...surfaceCardSx,
-                  gridColumn: evt.status ? { xs: 'span 1', sm: 'span 2', md: 'span 2' } : undefined,
-                  position: 'relative',
-                  background:
-                    evt.status
+                sx={[
+                  surfaceCardSx,
+                  {
+                    position: 'relative',
+                    background: evt.status
                       ? 'linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(247, 250, 223, 0.82) 100%)'
                       : 'linear-gradient(180deg, rgba(255, 255, 255, 0.86) 0%, rgba(238, 248, 255, 0.78) 100%)',
-                  border: evt.status
-                    ? '1px solid rgba(255, 213, 79, 0.52)'
-                    : '1px solid rgba(255, 255, 255, 0.6)',
-                }}
+                    border: evt.status
+                      ? '1px solid rgba(255, 213, 79, 0.52)'
+                      : '1px solid rgba(255, 255, 255, 0.6)',
+                  },
+                  evt.status ? { gridColumn: { xs: 'span 1', sm: 'span 2', md: 'span 2' } } : {},
+                ]}
               >
                 <Box
                   sx={{
