@@ -21,49 +21,145 @@ function createEmotionCache() {
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#D64550',
-      light: '#E97079',
-      dark: '#A93B44',
+      main: '#1674C8',
+      light: '#4F9DE0',
+      dark: '#0F5DA0',
       contrastText: '#FFFFFF',
     },
     secondary: {
-      main: '#4BAF8A',
-      light: '#75C6A8',
-      dark: '#38866A',
-      contrastText: '#0B2D1F',
+      main: '#5B9A45',
+      light: '#83BC67',
+      dark: '#3F6F31',
+      contrastText: '#F8FFF3',
     },
     warning: {
-      main: '#F7D070',
-      light: '#FBE3A1',
-      dark: '#D9B960',
-      contrastText: '#3A2E0D',
+      main: '#FFD54F',
+      light: '#FFEA9B',
+      dark: '#D5AE32',
+      contrastText: '#3A3007',
     },
     background: {
-      default: '#FAF7F2',
-      paper: '#FFFFFF',
+      default: '#E7F7FF',
+      paper: '#F7FCFF',
     },
     text: {
-      primary: '#333333',
-      secondary: '#555555',
+      primary: '#17324B',
+      secondary: '#355B79',
     },
-    divider: '#E7E2DC',
+    divider: 'rgba(67, 121, 163, 0.18)',
   },
-  shape: { borderRadius: 10 },
+  shape: { borderRadius: 16 },
   typography: {
-    fontFamily:
-      "system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
-    h1: { fontWeight: 700 },
-    h2: { fontWeight: 700 },
-    h3: { fontWeight: 600 },
+    fontFamily: "var(--font-nunito), 'Segoe UI', 'Helvetica Neue', Arial, sans-serif",
+    h1: {
+      fontFamily: 'var(--font-baloo), var(--font-nunito), sans-serif',
+      fontWeight: 800,
+      lineHeight: 1.05,
+    },
+    h2: {
+      fontFamily: 'var(--font-baloo), var(--font-nunito), sans-serif',
+      fontWeight: 700,
+      lineHeight: 1.08,
+    },
+    h3: {
+      fontFamily: 'var(--font-baloo), var(--font-nunito), sans-serif',
+      fontWeight: 700,
+      lineHeight: 1.1,
+    },
+    h4: {
+      fontFamily: 'var(--font-baloo), var(--font-nunito), sans-serif',
+      fontWeight: 700,
+      lineHeight: 1.12,
+    },
+    h5: {
+      fontFamily: 'var(--font-baloo), var(--font-nunito), sans-serif',
+      fontWeight: 700,
+      lineHeight: 1.14,
+    },
+    h6: {
+      fontFamily: 'var(--font-baloo), var(--font-nunito), sans-serif',
+      fontWeight: 700,
+      lineHeight: 1.15,
+    },
+    subtitle1: {
+      fontFamily: 'var(--font-baloo), var(--font-nunito), sans-serif',
+      fontWeight: 700,
+    },
+    button: {
+      fontWeight: 800,
+      fontSize: '0.98rem',
+      letterSpacing: '-0.01em',
+    },
     body1: { lineHeight: 1.7 },
+    body2: { lineHeight: 1.65 },
+    overline: {
+      fontWeight: 800,
+      letterSpacing: '0.16em',
+      textTransform: 'uppercase',
+    },
   },
   components: {
     MuiContainer: {
       defaultProps: { maxWidth: 'lg' },
     },
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backgroundImage: 'none',
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          backgroundImage: 'none',
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
-        root: { textTransform: 'none' },
+        root: {
+          cursor: 'pointer',
+          textTransform: 'none',
+          borderRadius: 999,
+          paddingInline: 22,
+          minHeight: 46,
+          boxShadow: 'none',
+        },
+        containedPrimary: {
+          backgroundImage: 'linear-gradient(180deg, #4F7DD2 0%, #3F6EC6 100%)',
+          boxShadow: '0 14px 28px rgba(54, 97, 173, 0.24)',
+          '&:hover': {
+            backgroundImage: 'linear-gradient(180deg, #4A78CB 0%, #3967BD 100%)',
+            boxShadow: '0 18px 34px rgba(54, 97, 173, 0.28)',
+          },
+        },
+        outlinedPrimary: {
+          backgroundColor: 'rgba(255, 255, 255, 0.46)',
+          borderWidth: 1.5,
+          '&:hover': {
+            borderWidth: 1.5,
+            backgroundColor: 'rgba(255, 255, 255, 0.68)',
+          },
+        },
+      },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          backgroundImage: 'none',
+          borderRadius: 28,
+          border: '1px solid rgba(255, 255, 255, 0.58)',
+        },
+      },
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          borderRadius: 999,
+          fontWeight: 700,
+          maxWidth: '100%',
+        },
       },
     },
   },
@@ -80,5 +176,3 @@ export default function ThemeRegistry({ children }: { children: React.ReactNode 
     </CacheProvider>
   );
 }
-
-

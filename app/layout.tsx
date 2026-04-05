@@ -1,13 +1,29 @@
 import type { Metadata, Viewport } from 'next';
+import { Baloo_2, Nunito } from 'next/font/google';
+import { Box, Container, Typography, Link as MUILink } from '@mui/material';
 import './globals.css';
 import ThemeRegistry from './theme/ThemeRegistry';
 import HeaderBar from './ui/HeaderBar';
-import { Container, Typography, Link as MUILink } from '@mui/material';
+import SkyBackdrop from './ui/SkyBackdrop';
+
+const bodyFont = Nunito({
+  subsets: ['latin'],
+  variable: '--font-nunito',
+  display: 'swap',
+  weight: ['400', '600', '700', '800'],
+});
+
+const displayFont = Baloo_2({
+  subsets: ['latin'],
+  variable: '--font-baloo',
+  display: 'swap',
+  weight: ['600', '700', '800'],
+});
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#D64550',
+  themeColor: '#6ECBF5',
 };
 
 export const metadata: Metadata = {
@@ -105,62 +121,65 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${bodyFont.variable} ${displayFont.variable}`}>
       <head>
         <meta name="emotion-insertion-point" content="" />
         <link rel="canonical" href="https://yeshelpnetwork.com/" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="google-site-verification" content="placeholder-for-google-search-console" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://www.instagram.com" />
         <link rel="dns-prefetch" href="https://bashdemy.com" />
         <link rel="dns-prefetch" href="https://www.eventbrite.com.au" />
       </head>
-      <body>
-        {/* Background floating ladybugs layer (decorative only) */}
-        <div className="floating-bugs" aria-hidden="true">
-          <span className="bug" style={{ left: '4%' }}><span className="emoji">🐞</span></span>
-          <span className="bug" style={{ left: '12%' }}><span className="emoji">🐞</span></span>
-          <span className="bug" style={{ left: '20%' }}><span className="emoji">🐞</span></span>
-          <span className="bug" style={{ left: '28%' }}><span className="emoji">🐞</span></span>
-          <span className="bug" style={{ left: '36%' }}><span className="emoji">🐞</span></span>
-          <span className="bug" style={{ left: '44%' }}><span className="emoji">🐞</span></span>
-          <span className="bug" style={{ left: '56%' }}><span className="emoji">🐞</span></span>
-          <span className="bug" style={{ left: '64%' }}><span className="emoji">🐞</span></span>
-          <span className="bug" style={{ left: '76%' }}><span className="emoji">🐞</span></span>
-          <span className="bug" style={{ left: '84%' }}><span className="emoji">🐞</span></span>
-          <span className="bug" style={{ left: '92%' }}><span className="emoji">🐞</span></span>
-        </div>
-
+      <body className={bodyFont.className}>
+        <SkyBackdrop />
         <ThemeRegistry>
           <div className="site-content">
             <HeaderBar />
             <main>{children}</main>
             <footer>
-              <Container sx={{ py: 4 }}>
-                <Typography
-                  variant="body2"
-                  color="text.secondary"
-                  sx={{ textAlign: 'right' }}
+              <Container sx={{ pb: 4 }}>
+                <Box
+                  sx={{
+                    px: { xs: 2.5, sm: 3 },
+                    py: 3,
+                    borderRadius: '30px',
+                    bgcolor: 'rgba(255, 255, 255, 0.72)',
+                    border: '1px solid rgba(255, 255, 255, 0.6)',
+                    boxShadow: '0 22px 52px rgba(34, 87, 137, 0.12)',
+                    backdropFilter: 'blur(16px)',
+                    display: 'grid',
+                    gridTemplateColumns: { xs: '1fr', sm: '1fr auto' },
+                    alignItems: 'center',
+                    gap: 1.5,
+                  }}
                 >
-                  {new Date().getFullYear()} yeshelpnetwork © All rights reserved
-                </Typography>
-                <Typography
-                  variant="body2"
-                  color="text.secondary"
-                  sx={{ textAlign: 'right', mt: 0.5 }}
-                >
-                  Built by{' '}
-                  <MUILink
-                    href="https://bashdemy.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    underline="hover"
+                  <Typography variant="body2" color="text.secondary">
+                    © {new Date().getFullYear()} yeshelpnetwork. All rights reserved.
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ justifySelf: { sm: 'end' }, textAlign: { xs: 'left', sm: 'right' } }}
                   >
-                    bashdemy
-                  </MUILink>
-                  
-                </Typography>
+                    Built by{' '}
+                    <MUILink
+                      href="https://bashdemy.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      underline="hover"
+                    >
+                      bashdemy
+                    </MUILink>
+                    <Box
+                      component="span"
+                      aria-hidden="true"
+                      sx={{ ml: 0.5, fontSize: '0.9rem', verticalAlign: 'middle' }}
+                    >
+                      🤍
+                    </Box>
+                  </Typography>
+                </Box>
               </Container>
             </footer>
           </div>

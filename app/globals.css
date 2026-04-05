@@ -3,8 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --background: 250 247 242;
-  --foreground: 51 51 51;
+  --background: 231 247 255;
+  --foreground: 23 50 75;
+  --sky-top: #69c7f2;
+  --sky-mid: #9ddfff;
+  --sky-bottom: #f3fbff;
+  --cloud: rgba(255, 255, 255, 0.96);
+  --cloud-shadow: rgba(89, 153, 196, 0.2);
 }
 
 html,
@@ -14,17 +19,21 @@ body {
 
 body {
   color: rgb(var(--foreground));
-  background: rgb(var(--background));
+  background:
+    radial-gradient(circle at 50% -6%, rgba(255, 255, 255, 0.56), transparent 30%),
+    radial-gradient(circle at 14% 14%, rgba(255, 255, 255, 0.2), transparent 18%),
+    radial-gradient(circle at 86% 10%, rgba(255, 255, 255, 0.32), transparent 20%),
+    linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 48%, var(--sky-bottom) 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
 }
 
-/* Accessibility: visible focus indicator */
 :focus-visible {
-  outline: 3px solid #4BAF8A; /* secondary.main */
+  outline: 3px solid #1674c8;
   outline-offset: 3px;
 }
 
-/* Floating ladybug background (CSS-only, minimal footprint) */
-.floating-bugs {
+.sky-backdrop {
   position: fixed;
   inset: 0;
   pointer-events: none;
@@ -32,66 +41,137 @@ body {
   overflow: hidden;
 }
 
+.sky-backdrop__glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 16% 22%, rgba(255, 255, 255, 0.16), transparent 16%),
+    radial-gradient(circle at 84% 18%, rgba(255, 255, 255, 0.22), transparent 18%),
+    radial-gradient(circle at 52% 100%, rgba(255, 255, 255, 0.14), transparent 30%);
+}
+
 .site-content {
   position: relative;
   z-index: 1;
 }
 
-.floating-bugs .bug {
+.cloud {
   position: absolute;
-  top: 100%;
-  animation-name: bug-float;
-  animation-duration: 22s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  opacity: 0.35; /* half-transparent vibe */
-  transform: translateY(0) rotate(0deg);
-}
-
-.floating-bugs .bug:nth-child(2) { animation-duration: 26s; opacity: 0.28; }
-.floating-bugs .bug:nth-child(3) { animation-duration: 24s; opacity: 0.32; }
-.floating-bugs .bug:nth-child(4) { animation-duration: 28s; opacity: 0.26; }
-.floating-bugs .bug:nth-child(5) { animation-duration: 23s; opacity: 0.30; }
-.floating-bugs .bug:nth-child(6) { animation-duration: 27s; opacity: 0.24; }
-.floating-bugs .bug:nth-child(7) { animation-duration: 25s; opacity: 0.30; }
-.floating-bugs .bug:nth-child(8) { animation-duration: 29s; opacity: 0.22; }
-.floating-bugs .bug:nth-child(9) { animation-duration: 21s; opacity: 0.34; }
-.floating-bugs .bug:nth-child(10) { animation-duration: 30s; opacity: 0.20; }
-.floating-bugs .bug:nth-child(11) { animation-duration: 26s; opacity: 0.28; }
-
-/* slight stagger so they don't all start at once */
-.floating-bugs .bug:nth-child(odd) { animation-delay: -6s; }
-.floating-bugs .bug:nth-child(3n) { animation-delay: -3s; }
-
-.floating-bugs .emoji {
-  display: inline-block;
-  font-size: clamp(20px, 3vw, 36px);
-  filter: saturate(0.9);
-  animation-name: bug-sway;
-  animation-duration: 6s;
+  aspect-ratio: 2.6 / 1.4;
+  filter: drop-shadow(0 18px 24px var(--cloud-shadow));
+  animation-name: cloud-float;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
+  transform: translate3d(0, 0, 0);
+  transform-origin: center bottom;
+  will-change: transform;
 }
 
-.floating-bugs .bug:nth-child(2) .emoji { animation-duration: 7s; }
-.floating-bugs .bug:nth-child(3) .emoji { animation-duration: 5.5s; }
-.floating-bugs .bug:nth-child(4) .emoji { animation-duration: 6.5s; }
-.floating-bugs .bug:nth-child(5) .emoji { animation-duration: 5s; }
-.floating-bugs .bug:nth-child(6) .emoji { animation-duration: 7.5s; }
-.floating-bugs .bug:nth-child(7) .emoji { animation-duration: 6.25s; }
-.floating-bugs .bug:nth-child(8) .emoji { animation-duration: 7.25s; }
-.floating-bugs .bug:nth-child(9) .emoji { animation-duration: 5.75s; }
-.floating-bugs .bug:nth-child(10) .emoji { animation-duration: 8s; }
-.floating-bugs .bug:nth-child(11) .emoji { animation-duration: 6.75s; }
-
-@keyframes bug-float {
-  0% { transform: translateY(0) rotate(0deg); }
-  100% { transform: translateY(-120vh) rotate(360deg); }
+.cloud__part {
+  position: absolute;
+  display: block;
+  background: var(--cloud);
+  border-radius: 999px;
 }
 
-@keyframes bug-sway {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(18px); }
+.cloud::after {
+  content: '';
+  position: absolute;
+  inset: 30% 12% 4%;
+  border-radius: 999px;
+  background: rgba(141, 205, 238, 0.3);
+  transform: translateY(10%);
+  z-index: -1;
 }
 
+.cloud__part--left {
+  width: 32%;
+  height: 48%;
+  left: 8%;
+  top: 34%;
+}
 
+.cloud__part--center {
+  width: 34%;
+  height: 62%;
+  left: 31%;
+  top: 12%;
+}
+
+.cloud__part--right {
+  width: 31%;
+  height: 54%;
+  right: 10%;
+  top: 24%;
+}
+
+.cloud__part--base {
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+  height: 36%;
+}
+
+@keyframes cloud-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  35% {
+    transform: translate3d(34px, -18px, 0) scale(1.03);
+  }
+
+  70% {
+    transform: translate3d(-20px, -8px, 0) scale(0.985);
+  }
+}
+
+.cloud-badge {
+  animation: cloud-badge-float 8s ease-in-out infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+.cloud-badge--slow {
+  animation-duration: 10.5s;
+}
+
+.cloud-badge--hero {
+  animation-name: cloud-badge-float-hero;
+  animation-duration: 9s;
+}
+
+.cloud-badge--offset {
+  animation-delay: -3s;
+}
+
+@keyframes cloud-badge-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate3d(0, -12px, 0) rotate(-4deg);
+  }
+}
+
+@keyframes cloud-badge-float-hero {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -6px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cloud,
+  .cloud-badge {
+    animation: none;
+  }
+}
