@@ -737,7 +737,7 @@ export default function HomePage() {
                   }}
                 >
                   <Image
-                    src="/images/hero-group.png"
+                    src="/images/youth-week-workshop.jpg"
                     alt=""
                     fill
                     sizes="(max-width: 900px) 45vw, 250px"
