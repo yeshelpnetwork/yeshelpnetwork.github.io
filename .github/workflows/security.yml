@@ -49,7 +49,7 @@ jobs:
         run: npx tsc --noEmit
         
       - name: Check for secrets in code
-        uses: trufflesecurity/trufflehog@main
+        uses: trufflesecurity/trufflehog@v3.88.5
         with:
           path: ./
           extra_args: --debug --only-verified --no-update

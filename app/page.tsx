@@ -10,6 +10,15 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
+import {
+  PlaceOutlined,
+  SchoolOutlined,
+  GroupsOutlined,
+  RecordVoiceOverOutlined,
+  CalendarTodayOutlined,
+  ArrowForward,
+  CheckCircleOutline,
+} from '@mui/icons-material';
 import Image from 'next/image';
 import Script from 'next/script';
 import type { Metadata } from 'next';
@@ -28,17 +37,16 @@ import {
   WEBSITE_ID,
 } from './site';
 
-const panelRadiusSx = { xs: '34px', sm: '42px' };
-const cardRadius = '32px';
-const insetCardRadius = '24px';
-const mediaRadius = '28px';
+const panelRadiusSx = { xs: '18px', sm: '24px' };
+const cardRadius = '16px';
+const insetCardRadius = '12px';
+const mediaRadius = '12px';
 
 const frostedPanelSx = {
   borderRadius: panelRadiusSx,
-  bgcolor: 'rgba(255, 255, 255, 0.74)',
-  border: '1px solid rgba(255, 255, 255, 0.6)',
-  boxShadow: '0 24px 64px rgba(34, 87, 137, 0.14)',
-  backdropFilter: 'blur(18px)',
+  bgcolor: '#FFFFFF',
+  border: '1px solid rgba(15, 37, 62, 0.08)',
+  boxShadow: '0 1px 3px rgba(15, 37, 62, 0.04), 0 8px 24px -4px rgba(15, 37, 62, 0.06)',
 };
 const sectionShellSx = {
   ...frostedPanelSx,
@@ -46,21 +54,20 @@ const sectionShellSx = {
   overflow: 'hidden',
 };
 const insetCardSx = {
-  p: { xs: 1.25, sm: 1.45 },
+  p: { xs: 1.5, sm: 1.75 },
   borderRadius: insetCardRadius,
-  bgcolor: 'rgba(255, 255, 255, 0.84)',
-  border: '1px solid rgba(255, 255, 255, 0.74)',
-  boxShadow: '0 16px 34px rgba(48, 110, 156, 0.14)',
+  bgcolor: 'rgba(248, 250, 252, 0.85)',
+  border: '1px solid rgba(15, 37, 62, 0.07)',
   minWidth: 0,
 };
-const sectionSpacingSx = { xs: 5, sm: 6.75, md: 7.5 };
+const sectionSpacingSx = { xs: 5, sm: 6.5, md: 7.5 };
 const panelPaddingSx = { xs: 2.75, sm: 3.5, md: 4 };
-const panelPaddingWideSx = { xs: 3, sm: 4, md: 4.6 };
-const cardPaddingSx = { xs: 2.1, sm: 2.45 };
+const panelPaddingWideSx = { xs: 2.75, sm: 3.75, md: 4.5 };
+const cardPaddingSx = { xs: 2, sm: 2.4 };
 const bodyCopySx = {
   minWidth: 0,
   overflowWrap: 'anywhere',
-  lineHeight: 1.7,
+  lineHeight: 1.68,
 };
 const chipWrapSx = {
   height: 'auto',
@@ -75,50 +82,49 @@ const chipWrapSx = {
 const softPillSx = {
   display: 'inline-flex',
   alignItems: 'center',
-  gap: 1,
+  gap: 0.85,
   px: 1.4,
-  py: 0.8,
+  py: 0.55,
   borderRadius: '999px',
-  bgcolor: 'rgba(255, 255, 255, 0.78)',
-  border: '1px solid rgba(255, 255, 255, 0.66)',
-  boxShadow: '0 12px 30px rgba(55, 107, 151, 0.12)',
+  bgcolor: 'rgba(18, 100, 179, 0.06)',
+  border: '1px solid rgba(18, 100, 179, 0.16)',
 };
 const iconBubbleSx = {
-  width: 44,
-  height: 44,
-  borderRadius: '50%',
+  width: 40,
+  height: 40,
+  borderRadius: '10px',
   display: 'grid',
   placeItems: 'center',
-  bgcolor: 'rgba(255, 255, 255, 0.84)',
-  border: '1px solid rgba(255, 255, 255, 0.68)',
-  boxShadow: '0 12px 26px rgba(55, 107, 151, 0.12)',
+  bgcolor: 'rgba(18, 100, 179, 0.08)',
+  color: 'primary.main',
+  flexShrink: 0,
 };
 const surfaceCardSx = {
-  ...frostedPanelSx,
   borderRadius: cardRadius,
   display: 'flex',
   flexDirection: 'column',
   height: '100%',
   minWidth: 0,
   overflow: 'hidden',
-  background:
-    'linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(238, 248, 255, 0.74) 100%)',
-  transition: 'transform 220ms ease, box-shadow 220ms ease',
+  bgcolor: '#FFFFFF',
+  border: '1px solid rgba(15, 37, 62, 0.08)',
+  boxShadow: '0 1px 3px rgba(15, 37, 62, 0.04), 0 6px 18px -4px rgba(15, 37, 62, 0.04)',
+  transition: 'transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease',
   '&:hover': {
-    transform: 'translateY(-4px)',
-    boxShadow: '0 28px 60px rgba(34, 87, 137, 0.18)',
+    transform: 'translateY(-3px)',
+    boxShadow: '0 4px 14px rgba(15, 37, 62, 0.06), 0 16px 32px -6px rgba(15, 37, 62, 0.08)',
+    borderColor: 'rgba(18, 100, 179, 0.22)',
   },
 };
 const mediaFrameSx = {
   position: 'relative',
   borderRadius: mediaRadius,
   overflow: 'hidden',
-  border: '1px solid rgba(255, 255, 255, 0.72)',
-  boxShadow: '0 16px 36px rgba(34, 87, 137, 0.12)',
+  border: '1px solid rgba(15, 37, 62, 0.08)',
 };
 const sectionCardGridSx = {
   display: 'grid',
-  gap: { xs: 2.4, md: 2.8 },
+  gap: { xs: 2.5, md: 3 },
   mt: 2.5,
   alignItems: 'stretch',
   gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: 'repeat(3, 1fr)' },
@@ -150,18 +156,35 @@ function SectionHeading({
   titleMaxWidth?: number;
 }) {
   return (
-    <Box sx={{ mb: compact ? 2.75 : 3.4 }}>
+    <Box sx={{ mb: compact ? 2.5 : 3.5 }}>
       <Box
         sx={{
           ...softPillSx,
-          px: compact ? 1.35 : 1.5,
-          py: compact ? 0.65 : 0.75,
+          px: compact ? 1.25 : 1.4,
+          py: compact ? 0.45 : 0.55,
+          mb: 1.5,
         }}
       >
-        <Box component="span" aria-hidden="true" sx={{ fontSize: '1.1rem', lineHeight: 1 }}>
-          ☁️
-        </Box>
-        <Typography variant="overline" sx={{ color: 'primary.dark' }}>
+        <Box
+          component="span"
+          aria-hidden="true"
+          sx={{
+            width: 7,
+            height: 7,
+            borderRadius: '50%',
+            bgcolor: 'primary.main',
+          }}
+        />
+        <Typography
+          variant="overline"
+          sx={{
+            color: 'primary.dark',
+            fontWeight: 700,
+            letterSpacing: '0.12em',
+            lineHeight: 1,
+            fontSize: '0.74rem',
+          }}
+        >
           {label}
         </Typography>
       </Box>
@@ -171,13 +194,13 @@ function SectionHeading({
         sx={{
           typography: compact
             ? { xs: 'h5', sm: 'h5', md: 'h4' }
-            : { xs: 'h4', sm: 'h4', md: 'h4' },
+            : { xs: 'h4', sm: 'h4', md: 'h3' },
           fontWeight: 800,
-          lineHeight: { xs: 1.08, sm: 1.04 },
-          letterSpacing: '-0.02em',
-          mt: compact ? 1.5 : 2,
+          lineHeight: { xs: 1.15, sm: 1.12 },
+          letterSpacing: '-0.025em',
           maxWidth: titleMaxWidth ?? 720,
           textWrap: 'balance',
+          color: 'text.primary',
         }}
       >
         {title}
@@ -185,7 +208,12 @@ function SectionHeading({
       <Typography
         variant="body1"
         color="text.secondary"
-        sx={{ ...bodyCopySx, mt: compact ? 1 : 1.25, maxWidth: 610 }}
+        sx={{
+          ...bodyCopySx,
+          mt: 1.25,
+          maxWidth: 620,
+          fontSize: { xs: '0.95rem', sm: '1.02rem' },
+        }}
       >
         {description}
       </Typography>
@@ -497,56 +525,50 @@ export default function HomePage() {
         })}
       </Script>
 
-      <Box component="section" sx={{ pt: { xs: 3, sm: 5 }, pb: { xs: 7, sm: 9 } }}>
+      {/* Hero Section */}
+      <Box component="section" sx={{ pt: { xs: 3, sm: 4.5 }, pb: { xs: 6, sm: 8 } }}>
         <Container>
           <Box
             sx={{
               ...sectionShellSx,
               p: panelPaddingWideSx,
               display: 'grid',
-              gap: { xs: 3.2, md: 4.6 },
+              gap: { xs: 3.5, md: 5 },
               alignItems: 'center',
               gridTemplateColumns: { xs: '1fr', md: '1.05fr 0.95fr' },
+              background: 'linear-gradient(180deg, #FFFFFF 0%, #F9FBFE 100%)',
             }}
           >
-            <Box
-              aria-hidden="true"
-              sx={{
-                position: 'absolute',
-                right: -80,
-                bottom: -100,
-                width: 280,
-                height: 280,
-                borderRadius: '50%',
-                background:
-                  'radial-gradient(circle, rgba(255, 213, 79, 0.36) 0%, rgba(255, 213, 79, 0) 72%)',
-              }}
-            />
             <Box sx={{ position: 'relative', zIndex: 1 }}>
               <Box
                 sx={{
                   ...softPillSx,
-                  px: 1.5,
-                  py: 0.75,
-                  bgcolor: 'rgba(255, 255, 255, 0.8)',
+                  px: 1.4,
+                  py: 0.55,
+                  mb: 2,
                 }}
               >
-                <Box component="span" aria-hidden="true" sx={{ fontSize: '1.1rem', lineHeight: 1 }}>
-                  ☁️
-                </Box>
-                <Typography variant="overline" sx={{ color: 'primary.dark' }}>
+                <Box
+                  component="span"
+                  aria-hidden="true"
+                  sx={{ width: 7, height: 7, borderRadius: '50%', bgcolor: 'primary.main' }}
+                />
+                <Typography
+                  variant="overline"
+                  sx={{ color: 'primary.dark', fontWeight: 700, fontSize: '0.74rem' }}
+                >
                   Youth-led support across Sydney
                 </Typography>
               </Box>
               <Typography
                 component="h1"
                 sx={{
-                  typography: { xs: 'h5', sm: 'h4', md: 'h3' },
+                  typography: { xs: 'h4', sm: 'h3', md: 'h2' },
                   fontWeight: 800,
-                  lineHeight: 1.04,
-                  letterSpacing: '-0.02em',
-                  mt: 2.25,
-                  maxWidth: 520,
+                  lineHeight: { xs: 1.14, sm: 1.08 },
+                  letterSpacing: '-0.025em',
+                  color: 'text.primary',
+                  maxWidth: 540,
                   textWrap: 'balance',
                 }}
               >
@@ -555,29 +577,37 @@ export default function HomePage() {
               <Typography
                 variant="body1"
                 color="text.secondary"
-                sx={{ ...bodyCopySx, mt: 1.4, maxWidth: 560 }}
+                sx={{
+                  ...bodyCopySx,
+                  mt: 1.75,
+                  maxWidth: 540,
+                  fontSize: { xs: '0.98rem', sm: '1.06rem' },
+                }}
               >
                 Yes Help Network connects young people in Sydney with mentorship, skills training,
                 and community-led opportunities to grow in confidence, build connection, and step
                 into leadership.
               </Typography>
-              <Stack direction="row" spacing={1.1} useFlexGap flexWrap="wrap" sx={{ mt: 2.75 }}>
+              <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap" sx={{ mt: 2.75 }}>
                 {heroHighlights.map((item) => (
                   <Box
                     key={item}
                     sx={{
-                      ...softPillSx,
-                      px: 1.4,
-                      py: 0.9,
-                      bgcolor: 'rgba(255, 255, 255, 0.74)',
-                      border: '1px solid rgba(255, 255, 255, 0.62)',
-                      boxShadow: '0 10px 24px rgba(55, 107, 151, 0.08)',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 0.75,
+                      px: 1.35,
+                      py: 0.65,
+                      borderRadius: '8px',
+                      bgcolor: 'rgba(18, 100, 179, 0.05)',
+                      border: '1px solid rgba(18, 100, 179, 0.12)',
                     }}
                   >
-                    <Box component="span" aria-hidden="true" sx={{ fontSize: '0.95rem', lineHeight: 1 }}>
-                      ☁️
-                    </Box>
-                    <Typography variant="body2" sx={{ color: 'text.primary', fontWeight: 700 }}>
+                    <CheckCircleOutline
+                      sx={{ fontSize: '1rem', color: 'primary.main' }}
+                      aria-hidden="true"
+                    />
+                    <Typography variant="body2" sx={{ color: 'text.primary', fontWeight: 600 }}>
                       {item}
                     </Typography>
                   </Box>
@@ -585,18 +615,18 @@ export default function HomePage() {
               </Stack>
               <Box
                 sx={{
-                  mt: 3.1,
+                  mt: 3.25,
                   display: 'inline-flex',
                   flexDirection: 'column',
                   alignItems: 'flex-start',
-                  gap: 1.35,
+                  gap: 1.5,
                   minWidth: 0,
                   maxWidth: { xs: '100%', sm: 520 },
                 }}
               >
                 <Stack
                   direction="row"
-                  spacing={1.25}
+                  spacing={1.5}
                   useFlexGap
                   flexWrap="wrap"
                   sx={{ minWidth: 0 }}
@@ -616,143 +646,116 @@ export default function HomePage() {
                 <Typography
                   variant="body2"
                   color="text.secondary"
-                  sx={{ ...bodyCopySx, pl: 0.25, pr: 1, maxWidth: 360 }}
+                  sx={{ ...bodyCopySx, pl: 0.25, pr: 1, maxWidth: 380 }}
                 >
                   Want to collaborate?{' '}
                   <Box
                     component="a"
                     href="#contact"
-                    sx={{ color: 'primary.main', fontWeight: 800, textDecoration: 'none' }}
+                    sx={{ color: 'primary.main', fontWeight: 700, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
                   >
                     Partner with us.
                   </Box>
                 </Typography>
               </Box>
             </Box>
+
+            {/* Showcase Visual */}
             <Box sx={{ position: 'relative', zIndex: 1 }}>
               <Box
-                aria-hidden="true"
                 sx={{
-                  position: 'relative',
-                  minHeight: { xs: 420, sm: 470 },
-                  borderRadius: { xs: '34px', sm: '38px' },
-                  overflow: 'hidden',
-                  background: 'linear-gradient(180deg, #6ECBF5 0%, #9DE2FF 58%, #F4FBFF 100%)',
-                  border: '1px solid rgba(255, 255, 255, 0.76)',
-                  boxShadow: '0 24px 64px rgba(32, 78, 122, 0.18)',
+                  bgcolor: '#FFFFFF',
+                  borderRadius: { xs: '18px', sm: '20px' },
+                  border: '1px solid rgba(15, 37, 62, 0.08)',
+                  boxShadow: '0 4px 20px -2px rgba(15, 37, 62, 0.07)',
+                  p: { xs: 2, sm: 2.5 },
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 2,
                 }}
               >
                 <Box
                   sx={{
-                    position: 'absolute',
-                    top: { xs: 24, sm: 28 },
-                    left: { xs: 24, sm: 28 },
                     display: 'flex',
-                    gap: 1,
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
                     flexWrap: 'wrap',
-                    pr: 3,
-                    maxWidth: { xs: '68%', sm: '72%' },
+                    gap: 1,
                   }}
                 >
-                  {['☁️ Youth-led', '☁️ Parramatta, NSW'].map((tag) => (
+                  <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
                     <Box
-                      key={tag}
                       sx={{
-                        ...softPillSx,
-                        boxShadow: '0 10px 28px rgba(56, 112, 154, 0.12)',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: 0.65,
+                        px: 1.25,
+                        py: 0.45,
+                        borderRadius: '6px',
+                        bgcolor: 'rgba(22, 163, 74, 0.08)',
+                        border: '1px solid rgba(22, 163, 74, 0.2)',
                       }}
                     >
-                      <Typography variant="body2" sx={{ fontWeight: 700, color: 'primary.dark' }}>
-                        {tag}
+                      <Box
+                        sx={{
+                          width: 6,
+                          height: 6,
+                          borderRadius: '50%',
+                          bgcolor: '#16A34A',
+                        }}
+                      />
+                      <Typography variant="caption" sx={{ fontWeight: 700, color: '#15803D' }}>
+                        Youth-led
                       </Typography>
                     </Box>
-                  ))}
+                    <Box
+                      sx={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: 0.5,
+                        px: 1.25,
+                        py: 0.45,
+                        borderRadius: '6px',
+                        bgcolor: 'rgba(18, 100, 179, 0.06)',
+                        border: '1px solid rgba(18, 100, 179, 0.16)',
+                      }}
+                    >
+                      <PlaceOutlined sx={{ fontSize: '0.9rem', color: 'primary.main' }} />
+                      <Typography variant="caption" sx={{ fontWeight: 700, color: 'primary.dark' }}>
+                        Parramatta, NSW
+                      </Typography>
+                    </Box>
+                  </Stack>
+                  <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 600 }}>
+                    Sydney Community
+                  </Typography>
                 </Box>
+
                 <Box
-                  className="cloud-badge cloud-badge--hero cloud-badge--slow"
                   sx={{
-                    position: 'absolute',
-                    top: { xs: '16%', sm: '17%' },
-                    right: { xs: 28, sm: 32 },
-                    width: { xs: 64, sm: 72 },
-                    height: { xs: 64, sm: 72 },
-                    aspectRatio: '1 / 1',
+                    position: 'relative',
+                    aspectRatio: '16 / 10',
+                    borderRadius: '12px',
                     overflow: 'hidden',
-                    borderRadius: '50%',
-                    clipPath: 'circle(50% at 50% 50%)',
-                    display: 'grid',
-                    placeItems: 'center',
-                    bgcolor: 'rgba(255, 255, 255, 0.84)',
-                    outline: '1px solid rgba(255, 255, 255, 0.88)',
-                    boxShadow: '0 18px 30px rgba(48, 110, 156, 0.18)',
-                    fontSize: '2rem',
-                  }}
-                >
-                  ☁️
-                </Box>
-                <Box
-                  className="cloud-badge cloud-badge--hero cloud-badge--offset"
-                  sx={{
-                    position: 'absolute',
-                    top: { xs: '29%', sm: '30%' },
-                    left: { xs: '16%', sm: '15%' },
-                    width: { xs: 48, sm: 56 },
-                    height: { xs: 48, sm: 56 },
-                    aspectRatio: '1 / 1',
-                    overflow: 'hidden',
-                    borderRadius: '50%',
-                    clipPath: 'circle(50% at 50% 50%)',
-                    display: 'grid',
-                    placeItems: 'center',
-                    bgcolor: 'rgba(255, 255, 255, 0.78)',
-                    outline: '1px solid rgba(255, 255, 255, 0.84)',
-                    boxShadow: '0 14px 26px rgba(48, 110, 156, 0.14)',
-                    fontSize: '1.45rem',
-                  }}
-                >
-                  ☁️
-                </Box>
-                <Box
-                  sx={{
-                    position: 'absolute',
-                    inset: 'auto -8% -18% -8%',
-                    height: '42%',
-                    borderRadius: '50%',
-                    background: 'linear-gradient(180deg, #CFE580 0%, #84B144 100%)',
-                  }}
-                />
-                <Box
-                  sx={{
-                    position: 'absolute',
-                    left: { xs: 24, sm: 28 },
-                    bottom: { xs: 26, sm: 30 },
-                    width: { xs: '40%', sm: '37%' },
-                    maxWidth: 210,
-                    aspectRatio: '4 / 4.6',
-                    borderRadius: '30px',
-                    overflow: 'hidden',
-                    border: '1px solid rgba(255, 255, 255, 0.82)',
-                    boxShadow: '0 20px 42px rgba(36, 78, 118, 0.2)',
-                    bgcolor: 'rgba(255, 255, 255, 0.78)',
+                    border: '1px solid rgba(15, 37, 62, 0.08)',
+                    bgcolor: '#F1F5F9',
                   }}
                 >
                   <Image
                     src="/images/youth-week-workshop.jpg"
-                    alt=""
+                    alt="Youth community members participating in a creative workshop"
                     fill
-                    sizes="(max-width: 900px) 45vw, 250px"
+                    sizes="(max-width: 900px) 100vw, 480px"
                     style={{ objectFit: 'cover' }}
+                    priority
                   />
                 </Box>
-                <Stack
-                  spacing={1.25}
+
+                <Box
                   sx={{
-                    position: 'absolute',
-                    right: { xs: 24, sm: 28 },
-                    bottom: { xs: 24, sm: 28 },
-                    width: { xs: '51%', sm: '47%' },
-                    maxWidth: 286,
-                    minWidth: { xs: 194, sm: 220 },
+                    display: 'grid',
+                    gridTemplateColumns: { xs: '1fr', sm: 'repeat(3, 1fr)' },
+                    gap: 1.25,
                   }}
                 >
                   {heroCards.map((card) => (
@@ -760,16 +763,16 @@ export default function HomePage() {
                       key={card.title}
                       sx={{
                         ...insetCardSx,
+                        p: 1.35,
                       }}
                     >
                       <Typography
                         variant="subtitle2"
                         sx={{
-                          fontSize: { xs: '0.98rem', sm: '1.02rem' },
-                          fontWeight: 800,
+                          fontSize: '0.88rem',
+                          fontWeight: 700,
                           color: 'primary.dark',
-                          textWrap: 'pretty',
-                          lineHeight: 1.15,
+                          lineHeight: 1.2,
                         }}
                       >
                         {card.title}
@@ -780,22 +783,23 @@ export default function HomePage() {
                           ...bodyCopySx,
                           color: 'text.secondary',
                           display: 'block',
-                          mt: 0.5,
-                          fontSize: { xs: '0.76rem', sm: '0.8rem' },
-                          lineHeight: 1.45,
+                          mt: 0.4,
+                          fontSize: '0.78rem',
+                          lineHeight: 1.4,
                         }}
                       >
                         {card.body}
                       </Typography>
                     </Box>
                   ))}
-                </Stack>
+                </Box>
               </Box>
             </Box>
           </Box>
         </Container>
       </Box>
 
+      {/* Programs Section */}
       <Box component="section" id="programs" sx={{ py: sectionSpacingSx }}>
         <Container>
           <SectionHeading
@@ -805,101 +809,102 @@ export default function HomePage() {
             titleMaxWidth={980}
           />
           <Box sx={sectionCardGridSx}>
-            {programs.map((item) => (
-              <Box
-                key={item.title}
-                sx={{
-                  ...surfaceCardSx,
-                  p: cardPaddingSx,
-                  gap: 1.15,
-                  pb: { xs: 2.2, sm: 2.5 },
-                }}
-              >
-                <Stack
-                  direction="row"
-                  alignItems="flex-start"
-                  justifyContent="space-between"
-                  useFlexGap
-                  flexWrap="wrap"
-                  sx={{ minWidth: 0, gap: 1, mb: 0.25 }}
-                >
-                  <Box
-                    aria-hidden="true"
-                    sx={{
-                      ...iconBubbleSx,
-                      fontSize: '1.15rem',
-                    }}
-                  >
-                    ☁️
-                  </Box>
-                  <Chip
-                    label={item.kicker}
-                    size="small"
-                    sx={{
-                      ...chipWrapSx,
-                      maxWidth: '100%',
-                      bgcolor: 'rgba(255, 213, 79, 0.34)',
-                      border: '1px solid rgba(255, 213, 79, 0.56)',
-                      color: 'warning.dark',
-                    }}
-                  />
-                </Stack>
-                <Typography
-                  variant="h5"
-                  component="h3"
-                  sx={{
-                    typography: { xs: 'h6', sm: 'h5' },
-                    fontWeight: 700,
-                    lineHeight: 1.14,
-                    minWidth: 0,
-                    textWrap: 'pretty',
-                    overflowWrap: 'anywhere',
-                    pr: 0.5,
-                  }}
-                >
-                  {item.title}
-                </Typography>
+            {programs.map((item, index) => {
+              const ProgramIcon =
+                index === 0
+                  ? SchoolOutlined
+                  : index === 1
+                    ? GroupsOutlined
+                    : RecordVoiceOverOutlined;
+              return (
                 <Box
+                  key={item.title}
                   sx={{
-                    ...mediaFrameSx,
-                    mt: 0.4,
-                    aspectRatio: item.imgFrameRatio,
-                    bgcolor: item.imgBg,
+                    ...surfaceCardSx,
+                    p: cardPaddingSx,
+                    gap: 1.25,
                   }}
                 >
-                  <Box
-                    sx={{
-                      position: 'absolute',
-                      inset: item.imgInset,
-                      borderRadius: item.imgFit === 'contain' ? '22px' : 0,
-                      overflow: 'hidden',
-                    }}
+                  <Stack
+                    direction="row"
+                    alignItems="center"
+                    justifyContent="space-between"
+                    useFlexGap
+                    flexWrap="wrap"
+                    sx={{ minWidth: 0, gap: 1, mb: 0.25 }}
                   >
-                    <Image
-                      src={item.imgSrc}
-                      alt={item.imgAlt}
-                      fill
-                      sizes="(max-width: 900px) 100vw, 33vw"
-                      style={{
-                        objectFit: item.imgFit,
-                        objectPosition: item.imgPosition,
+                    <Box aria-hidden="true" sx={iconBubbleSx}>
+                      <ProgramIcon sx={{ fontSize: '1.25rem' }} />
+                    </Box>
+                    <Chip
+                      label={item.kicker}
+                      size="small"
+                      sx={{
+                        ...chipWrapSx,
+                        maxWidth: '100%',
+                        bgcolor: 'rgba(18, 100, 179, 0.08)',
+                        color: 'primary.dark',
+                        fontWeight: 700,
+                        fontSize: '0.78rem',
                       }}
                     />
+                  </Stack>
+                  <Typography
+                    variant="h5"
+                    component="h3"
+                    sx={{
+                      typography: { xs: 'h6', sm: 'h5' },
+                      fontWeight: 700,
+                      lineHeight: 1.2,
+                      color: 'text.primary',
+                      minWidth: 0,
+                    }}
+                  >
+                    {item.title}
+                  </Typography>
+                  <Box
+                    sx={{
+                      ...mediaFrameSx,
+                      mt: 0.25,
+                      aspectRatio: item.imgFrameRatio,
+                      bgcolor: item.imgBg,
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        position: 'absolute',
+                        inset: item.imgInset,
+                        borderRadius: item.imgFit === 'contain' ? '10px' : 0,
+                        overflow: 'hidden',
+                      }}
+                    >
+                      <Image
+                        src={item.imgSrc}
+                        alt={item.imgAlt}
+                        fill
+                        sizes="(max-width: 900px) 100vw, 33vw"
+                        style={{
+                          objectFit: item.imgFit,
+                          objectPosition: item.imgPosition,
+                        }}
+                      />
+                    </Box>
                   </Box>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ ...bodyCopySx, mt: 0.5, minWidth: 0 }}
+                  >
+                    {item.desc}
+                  </Typography>
                 </Box>
-                <Typography
-                  variant="body2"
-                  color="text.secondary"
-                  sx={{ ...bodyCopySx, mt: 0.35, minWidth: 0, pr: 0.5 }}
-                >
-                  {item.desc}
-                </Typography>
-              </Box>
-            ))}
+              );
+            })}
           </Box>
         </Container>
       </Box>
 
+      {/* Events Section */}
       <Box component="section" id="events" sx={{ py: sectionSpacingSx }}>
         <Container>
           <SectionHeading
@@ -916,12 +921,6 @@ export default function HomePage() {
                   surfaceCardSx,
                   {
                     position: 'relative',
-                    background: evt.status
-                      ? 'linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(247, 250, 223, 0.82) 100%)'
-                      : 'linear-gradient(180deg, rgba(255, 255, 255, 0.86) 0%, rgba(238, 248, 255, 0.78) 100%)',
-                    border: evt.status
-                      ? '1px solid rgba(255, 213, 79, 0.52)'
-                      : '1px solid rgba(255, 255, 255, 0.6)',
                   },
                   evt.status ? { gridColumn: { xs: 'span 1', sm: 'span 2', md: 'span 2' } } : {},
                 ]}
@@ -929,9 +928,8 @@ export default function HomePage() {
                 <Box
                   sx={{
                     ...mediaFrameSx,
-                    aspectRatio: evt.status ? '2.2 / 1' : '16 / 10',
-                    borderBottom: '1px solid rgba(255, 255, 255, 0.68)',
-                    bgcolor: 'rgba(255, 255, 255, 0.72)',
+                    aspectRatio: evt.status ? { xs: '16 / 9', sm: '2.2 / 1' } : '16 / 10',
+                    borderBottom: '1px solid rgba(15, 37, 62, 0.08)',
                     borderTopLeftRadius: cardRadius,
                     borderTopRightRadius: cardRadius,
                     borderBottomLeftRadius: 0,
@@ -940,6 +938,7 @@ export default function HomePage() {
                     borderLeft: 'none',
                     borderRight: 'none',
                     borderTop: 'none',
+                    bgcolor: '#F8FAFC',
                   }}
                 >
                   <Image
@@ -952,55 +951,60 @@ export default function HomePage() {
                       objectPosition: evt.imgPosition ?? 'center',
                     }}
                   />
-                  <Box
-                    aria-hidden="true"
-                    sx={{
-                      ...iconBubbleSx,
-                      position: 'absolute',
-                      top: 14,
-                      right: 14,
-                      width: 36,
-                      height: 36,
-                      fontSize: '1rem',
-                    }}
-                  >
-                    ☁️
-                  </Box>
+                  {evt.status && (
+                    <Box
+                      sx={{
+                        position: 'absolute',
+                        top: 14,
+                        left: 14,
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: 0.75,
+                        px: 1.4,
+                        py: 0.6,
+                        borderRadius: '6px',
+                        bgcolor: 'rgba(255, 255, 255, 0.95)',
+                        backdropFilter: 'blur(8px)',
+                        boxShadow: '0 2px 8px rgba(15, 37, 62, 0.1)',
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          width: 8,
+                          height: 8,
+                          borderRadius: '50%',
+                          bgcolor: '#16A34A',
+                        }}
+                      />
+                      <Typography
+                        variant="caption"
+                        sx={{ fontWeight: 800, color: '#15803D', letterSpacing: '0.04em' }}
+                      >
+                        UPCOMING EVENT
+                      </Typography>
+                    </Box>
+                  )}
                 </Box>
-                <Box sx={{ height: 6, background: 'linear-gradient(90deg, #1674C8 0%, #FFD54F 100%)' }} />
+
                 <CardContent
                   sx={{
-                    p: evt.status ? { xs: 2, sm: 2.35 } : cardPaddingSx,
-                    pr: evt.status ? { xs: 2.15, sm: 2.45 } : cardPaddingSx,
+                    p: evt.status ? { xs: 2.2, sm: 2.75 } : cardPaddingSx,
                     pb: 1.5,
                     flexGrow: 1,
                     minWidth: 0,
                   }}
                 >
-                  {evt.status && (
-                    <Chip
-                      label={evt.status}
-                      size="small"
-                      sx={{
-                        ...chipWrapSx,
-                        mb: 1.1,
-                        bgcolor: 'rgba(255, 213, 79, 0.42)',
-                        border: '1px solid rgba(255, 213, 79, 0.7)',
-                        color: 'warning.dark',
-                        fontWeight: 700,
-                      }}
-                    />
-                  )}
                   <Typography
                     variant="subtitle1"
                     fontWeight={700}
                     gutterBottom
                     sx={{
-                      fontSize: { xs: '1rem', sm: evt.status ? '1.2rem' : '1.04rem' },
+                      fontSize: { xs: '1.05rem', sm: evt.status ? '1.25rem' : '1.05rem' },
+                      color: 'text.primary',
                       pr: 0.5,
                       minWidth: 0,
                       textWrap: evt.status ? 'balance' : 'pretty',
-                      lineHeight: 1.22,
+                      lineHeight: 1.25,
                       overflowWrap: 'anywhere',
                     }}
                   >
@@ -1009,30 +1013,35 @@ export default function HomePage() {
                   <Typography
                     variant="caption"
                     color="text.secondary"
-                    sx={{ display: 'block', minWidth: 0, overflowWrap: 'anywhere' }}
+                    sx={{ display: 'block', minWidth: 0, fontWeight: 500, overflowWrap: 'anywhere', mb: 1 }}
                   >
                     {evt.org}
                   </Typography>
-                  <Typography variant="body2" color="text.secondary" sx={{ ...bodyCopySx, mt: 1.1 }}>
+                  <Typography variant="body2" color="text.secondary" sx={{ ...bodyCopySx, mt: 0.75 }}>
                     {evt.summary}
                   </Typography>
-                  <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mt: 1.25 }}>
-                    {evt.chips.map((c) => (
-                      <Chip
-                        key={c}
-                        label={c}
-                        size="small"
-                        variant="outlined"
-                        sx={{
-                          ...chipWrapSx,
-                          bgcolor: 'rgba(255, 255, 255, 0.68)',
-                          borderColor: 'rgba(79, 157, 224, 0.4)',
-                        }}
-                      />
-                    ))}
+                  <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mt: 1.5 }}>
+                    {evt.chips.map((c) => {
+                      const isDate = c.includes('Apr') || c.includes('Oct') || c.includes('Talk');
+                      return (
+                        <Chip
+                          key={c}
+                          icon={isDate ? <CalendarTodayOutlined sx={{ fontSize: '0.85rem !important' }} /> : <PlaceOutlined sx={{ fontSize: '0.85rem !important' }} />}
+                          label={c}
+                          size="small"
+                          sx={{
+                            ...chipWrapSx,
+                            bgcolor: 'rgba(15, 37, 62, 0.04)',
+                            border: '1px solid rgba(15, 37, 62, 0.08)',
+                            fontSize: '0.78rem',
+                            fontWeight: 500,
+                          }}
+                        />
+                      );
+                    })}
                   </Stack>
                   {evt.tags.length > 0 && (
-                    <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mt: 1.1 }}>
+                    <Stack direction="row" spacing={0.75} flexWrap="wrap" useFlexGap sx={{ mt: 1.25 }}>
                       {evt.tags.map((t) => (
                         <Chip
                           key={t}
@@ -1040,8 +1049,10 @@ export default function HomePage() {
                           size="small"
                           sx={{
                             ...chipWrapSx,
-                            bgcolor: 'rgba(255, 213, 79, 0.34)',
-                            color: 'warning.dark',
+                            bgcolor: 'rgba(18, 100, 179, 0.06)',
+                            color: 'primary.dark',
+                            fontSize: '0.74rem',
+                            fontWeight: 600,
                           }}
                         />
                       ))}
@@ -1050,8 +1061,8 @@ export default function HomePage() {
                 </CardContent>
                 <CardActions
                   sx={{
-                    px: evt.status ? { xs: 2, sm: 2.35 } : cardPaddingSx,
-                    pb: evt.status ? { xs: 2, sm: 2.35 } : cardPaddingSx,
+                    px: evt.status ? { xs: 2.2, sm: 2.75 } : cardPaddingSx,
+                    pb: evt.status ? { xs: 2.2, sm: 2.75 } : cardPaddingSx,
                     pt: 0.5,
                     mt: 'auto',
                   }}
@@ -1061,8 +1072,13 @@ export default function HomePage() {
                     target="_blank"
                     rel="noopener noreferrer nofollow"
                     size="small"
-                    variant="text"
+                    variant={evt.status ? 'contained' : 'text'}
+                    color="primary"
+                    endIcon={<ArrowForward sx={{ fontSize: '1rem !important' }} />}
                     aria-label={`${evt.ctaLabel} for ${evt.title} (opens in a new tab)`}
+                    sx={{
+                      fontWeight: 700,
+                    }}
                   >
                     {evt.ctaLabel}
                   </Button>
@@ -1073,8 +1089,9 @@ export default function HomePage() {
         </Container>
       </Box>
 
-      <Divider sx={{ borderColor: 'rgba(255, 255, 255, 0.42)' }} />
+      <Divider sx={{ borderColor: 'rgba(15, 37, 62, 0.06)' }} />
 
+      {/* About Section */}
       <Box component="section" id="about" sx={{ py: sectionSpacingSx }}>
         <Container>
           <Box
@@ -1082,20 +1099,20 @@ export default function HomePage() {
               ...sectionShellSx,
               p: panelPaddingWideSx,
               display: 'grid',
-              gap: { xs: 3.5, md: 4.8 },
+              gap: { xs: 3.5, md: 5 },
               alignItems: 'center',
               gridTemplateColumns: { xs: '1fr', md: 'minmax(0, 1fr) 320px' },
             }}
           >
-            <Box sx={{ minWidth: 0, pr: { md: 1.5 } }}>
+            <Box sx={{ minWidth: 0, pr: { md: 2 } }}>
               <SectionHeading
                 label="About"
                 title="Community care shaped by lived experience"
                 description="Founder Yeshal Mansoor created Yes Help Network to turn community care into practical, creative, and welcoming support for young people."
                 compact
-                titleMaxWidth={460}
+                titleMaxWidth={480}
               />
-              <Stack spacing={1.5} sx={{ maxWidth: '55ch' }}>
+              <Stack spacing={1.75} sx={{ maxWidth: '58ch' }}>
                 <Typography variant="body1" color="text.secondary" sx={bodyCopySx}>
                   Through youth organisations, councils, and community initiatives, she has
                   focused on building spaces where young people feel encouraged, informed, and
@@ -1108,59 +1125,51 @@ export default function HomePage() {
                 </Typography>
               </Stack>
             </Box>
-            <Box sx={{ justifySelf: 'center', width: '100%', maxWidth: { xs: 288, md: 304 } }}>
+            <Box sx={{ justifySelf: 'center', width: '100%', maxWidth: { xs: 260, md: 280 } }}>
               <Box
                 sx={{
-                  position: 'relative',
-                  width: '100%',
-                  aspectRatio: '1 / 1',
-                  mx: 'auto',
-                  borderRadius: '50%',
-                  overflow: 'hidden',
-                  border: '6px solid rgba(255, 255, 255, 0.72)',
-                  boxShadow: '0 22px 48px rgba(34, 87, 137, 0.18)',
-                  bgcolor: 'rgba(255, 255, 255, 0.72)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: 1.5,
                 }}
               >
                 <Box
-                  className="cloud-badge cloud-badge--slow"
                   sx={{
-                    position: 'absolute',
-                    top: 24,
-                    right: 24,
-                    width: 34,
-                    height: 34,
-                    borderRadius: '50%',
-                    display: 'grid',
-                    placeItems: 'center',
-                    bgcolor: 'rgba(255, 255, 255, 0.84)',
-                    boxShadow: '0 14px 26px rgba(55, 107, 151, 0.14)',
-                    fontSize: '0.95rem',
-                    zIndex: 1,
-                  }}
-                >
-                  ☁️
-                </Box>
-                <Box
-                  sx={{
-                    position: 'absolute',
-                    inset: '22px',
-                    borderRadius: '50%',
+                    position: 'relative',
+                    width: '100%',
+                    aspectRatio: '1 / 1',
+                    borderRadius: '24px',
                     overflow: 'hidden',
-                    bgcolor: '#fff',
+                    border: '4px solid #FFFFFF',
+                    boxShadow: '0 8px 30px rgba(15, 37, 62, 0.12)',
+                    bgcolor: '#FFFFFF',
                   }}
                 >
                   <Image
                     src="/images/founder-portrait.png"
                     alt="Founder of Yes Help Network"
                     fill
-                    sizes="(max-width: 900px) 320px, 340px"
+                    sizes="(max-width: 900px) 260px, 280px"
                     style={{
                       objectFit: 'cover',
                       objectPosition: '50% 16%',
-                      transform: 'scale(1.06)',
                     }}
                   />
+                </Box>
+                <Box
+                  sx={{
+                    ...softPillSx,
+                    px: 1.5,
+                    py: 0.6,
+                  }}
+                >
+                  <Typography variant="caption" sx={{ fontWeight: 700, color: 'text.primary' }}>
+                    Yeshal Mansoor
+                  </Typography>
+                  <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+                    · Founder
+                  </Typography>
                 </Box>
               </Box>
             </Box>
@@ -1168,13 +1177,14 @@ export default function HomePage() {
         </Container>
       </Box>
 
+      {/* Contact Section */}
       <Box component="section" id="contact" sx={{ py: sectionSpacingSx }}>
         <Container>
           <Box
             sx={{
               ...sectionShellSx,
               p: panelPaddingSx,
-              pb: { xs: 3.15, sm: 3.8, md: 4.2 },
+              pb: { xs: 3.5, sm: 4 },
             }}
           >
             <SectionHeading
@@ -1188,7 +1198,7 @@ export default function HomePage() {
                 display: 'grid',
                 gridTemplateColumns: { xs: '1fr', md: '1fr auto' },
                 alignItems: 'start',
-                gap: { xs: 2.25, md: 3 },
+                gap: { xs: 2.5, md: 3 },
               }}
             >
               <Typography variant="body1" color="text.secondary" sx={{ ...bodyCopySx, maxWidth: 660 }}>
@@ -1221,8 +1231,8 @@ export default function HomePage() {
             <Box
               sx={{
                 ...softPillSx,
-                mt: 2.4,
-                px: 1.2,
+                mt: 3,
+                px: 1.4,
                 py: 0.7,
                 maxWidth: 'fit-content',
               }}
@@ -1235,7 +1245,12 @@ export default function HomePage() {
                 href={FOUNDER_LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                sx={{ color: 'primary.main', textDecoration: 'none', fontWeight: 800 }}
+                sx={{
+                  color: 'primary.main',
+                  textDecoration: 'none',
+                  fontWeight: 700,
+                  '&:hover': { textDecoration: 'underline' },
+                }}
               >
                 Yeshal Mansoor
               </Box>

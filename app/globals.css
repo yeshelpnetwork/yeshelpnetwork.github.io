@@ -3,12 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --foreground: 23 50 75;
-  --sky-top: #69c7f2;
-  --sky-mid: #9ddfff;
-  --sky-bottom: #f3fbff;
-  --cloud: rgba(255, 255, 255, 0.96);
-  --cloud-shadow: rgba(89, 153, 196, 0.2);
+  --foreground: 15 37 62;
+  --bg-page: #f8fafc;
+  --surface: #ffffff;
+  --border-subtle: rgba(15, 37, 62, 0.08);
+  --border-card: rgba(226, 232, 240, 0.9);
+  --primary: #1264b3;
+  --primary-dark: #0e4f94;
 }
 
 html,
@@ -18,35 +19,18 @@ body {
 
 body {
   color: rgb(var(--foreground));
-  background:
-    radial-gradient(circle at 50% -6%, rgba(255, 255, 255, 0.56), transparent 30%),
-    radial-gradient(circle at 14% 14%, rgba(255, 255, 255, 0.2), transparent 18%),
-    radial-gradient(circle at 86% 10%, rgba(255, 255, 255, 0.32), transparent 20%),
-    linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 48%, var(--sky-bottom) 100%);
+  background-color: #f8fafc;
+  background-image:
+    radial-gradient(at 0% 0%, rgba(224, 242, 254, 0.5) 0px, transparent 45%),
+    radial-gradient(at 100% 0%, rgba(238, 242, 255, 0.5) 0px, transparent 45%),
+    radial-gradient(at 50% 100%, rgba(240, 249, 255, 0.45) 0px, transparent 50%);
   background-attachment: fixed;
   overflow-x: hidden;
 }
 
 :focus-visible {
-  outline: 3px solid #1674c8;
-  outline-offset: 3px;
-}
-
-.sky-backdrop {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.sky-backdrop__glow {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 16% 22%, rgba(255, 255, 255, 0.16), transparent 16%),
-    radial-gradient(circle at 84% 18%, rgba(255, 255, 255, 0.22), transparent 18%),
-    radial-gradient(circle at 52% 100%, rgba(255, 255, 255, 0.14), transparent 30%);
+  outline: 2px solid #1264b3;
+  outline-offset: 2px;
 }
 
 .site-content {
@@ -54,123 +38,27 @@ body {
   z-index: 1;
 }
 
-.cloud {
+.ambient-backdrop {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.ambient-backdrop__glow {
   position: absolute;
-  aspect-ratio: 2.6 / 1.4;
-  filter: drop-shadow(0 18px 24px var(--cloud-shadow));
-  animation-name: cloud-float;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  transform: translate3d(0, 0, 0);
-  transform-origin: center bottom;
-  will-change: transform;
-}
-
-.cloud__part {
-  position: absolute;
-  display: block;
-  background: var(--cloud);
-  border-radius: 999px;
-}
-
-.cloud::after {
-  content: '';
-  position: absolute;
-  inset: 30% 12% 4%;
-  border-radius: 999px;
-  background: rgba(141, 205, 238, 0.3);
-  transform: translateY(10%);
-  z-index: -1;
-}
-
-.cloud__part--left {
-  width: 32%;
-  height: 48%;
-  left: 8%;
-  top: 34%;
-}
-
-.cloud__part--center {
-  width: 34%;
-  height: 62%;
-  left: 31%;
-  top: 12%;
-}
-
-.cloud__part--right {
-  width: 31%;
-  height: 54%;
-  right: 10%;
-  top: 24%;
-}
-
-.cloud__part--base {
-  left: 10%;
-  right: 10%;
-  bottom: 10%;
-  height: 36%;
-}
-
-@keyframes cloud-float {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-
-  35% {
-    transform: translate3d(34px, -18px, 0) scale(1.03);
-  }
-
-  70% {
-    transform: translate3d(-20px, -8px, 0) scale(0.985);
-  }
-}
-
-.cloud-badge {
-  animation: cloud-badge-float 8s ease-in-out infinite;
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-}
-
-.cloud-badge--slow {
-  animation-duration: 10.5s;
-}
-
-.cloud-badge--hero {
-  animation-name: cloud-badge-float-hero;
-  animation-duration: 9s;
-}
-
-.cloud-badge--offset {
-  animation-delay: -3s;
-}
-
-@keyframes cloud-badge-float {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-
-  50% {
-    transform: translate3d(0, -12px, 0) rotate(-4deg);
-  }
-}
-
-@keyframes cloud-badge-float-hero {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-
-  50% {
-    transform: translate3d(0, -6px, 0);
-  }
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(18, 100, 179, 0.04), transparent 35%),
+    radial-gradient(circle at 82% 16%, rgba(79, 157, 224, 0.05), transparent 30%),
+    radial-gradient(circle at 50% 80%, rgba(18, 100, 179, 0.03), transparent 45%);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cloud,
-  .cloud-badge {
-    animation: none;
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

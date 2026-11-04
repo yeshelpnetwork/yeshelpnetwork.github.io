@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Baloo_2, Nunito } from 'next/font/google';
+import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 import { Box, Container, Typography, Link as MUILink } from '@mui/material';
 import './globals.css';
 import ThemeRegistry from './theme/ThemeRegistry';
@@ -7,24 +7,23 @@ import HeaderBar from './ui/HeaderBar';
 import SkyBackdrop from './ui/SkyBackdrop';
 import { FOUNDER_LINKEDIN_URL, SITE_URL } from './site';
 
-const bodyFont = Nunito({
+const bodyFont = Inter({
   subsets: ['latin'],
-  variable: '--font-nunito',
+  variable: '--font-sans',
   display: 'swap',
-  weight: ['400', '600', '700', '800'],
 });
 
-const displayFont = Baloo_2({
+const displayFont = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  variable: '--font-baloo',
+  variable: '--font-heading',
   display: 'swap',
-  weight: ['600', '700', '800'],
+  weight: ['500', '600', '700', '800'],
 });
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#6ECBF5',
+  themeColor: '#1264b3',
 };
 
 export const metadata: Metadata = {
@@ -137,16 +136,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <HeaderBar />
             <main>{children}</main>
             <footer>
-              <Container sx={{ pb: 4 }}>
+              <Container sx={{ pb: 4, pt: 2 }}>
                 <Box
                   sx={{
-                    px: { xs: 2.5, sm: 3 },
-                    py: 3,
-                    borderRadius: '30px',
-                    bgcolor: 'rgba(255, 255, 255, 0.72)',
-                    border: '1px solid rgba(255, 255, 255, 0.6)',
-                    boxShadow: '0 22px 52px rgba(34, 87, 137, 0.12)',
-                    backdropFilter: 'blur(16px)',
+                    px: { xs: 2.5, sm: 3.5 },
+                    py: 2.75,
+                    borderRadius: '16px',
+                    bgcolor: '#FFFFFF',
+                    border: '1px solid rgba(15, 37, 62, 0.08)',
+                    boxShadow: '0 1px 3px rgba(15, 37, 62, 0.04)',
                     display: 'grid',
                     gridTemplateColumns: { xs: '1fr', sm: '1fr auto' },
                     alignItems: 'center',
@@ -167,6 +165,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                       target="_blank"
                       rel="noopener noreferrer"
                       underline="hover"
+                      sx={{ color: 'primary.main', fontWeight: 600 }}
                     >
                       bashdemy
                     </MUILink>
