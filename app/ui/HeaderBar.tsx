@@ -22,10 +22,10 @@ export default function HeaderBar() {
       color="inherit"
       elevation={0}
       sx={{
-        borderBottom: '1px solid rgba(15, 37, 62, 0.08)',
-        bgcolor: 'rgba(255, 255, 255, 0.85)',
-        backdropFilter: 'blur(12px)',
-        boxShadow: '0 1px 3px rgba(15, 37, 62, 0.02)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.7)',
+        bgcolor: 'rgba(255, 255, 255, 0.82)',
+        backdropFilter: 'blur(16px)',
+        boxShadow: '0 4px 20px rgba(32, 92, 145, 0.08)',
       }}
     >
       <Container maxWidth="lg">

@@ -44,9 +44,10 @@ const mediaRadius = '12px';
 
 const frostedPanelSx = {
   borderRadius: panelRadiusSx,
-  bgcolor: '#FFFFFF',
-  border: '1px solid rgba(15, 37, 62, 0.08)',
-  boxShadow: '0 1px 3px rgba(15, 37, 62, 0.04), 0 8px 24px -4px rgba(15, 37, 62, 0.06)',
+  bgcolor: 'rgba(255, 255, 255, 0.92)',
+  backdropFilter: 'blur(16px)',
+  border: '1px solid rgba(255, 255, 255, 0.85)',
+  boxShadow: '0 12px 36px rgba(28, 88, 142, 0.12)',
 };
 const sectionShellSx = {
   ...frostedPanelSx,
@@ -56,8 +57,9 @@ const sectionShellSx = {
 const insetCardSx = {
   p: { xs: 1.5, sm: 1.75 },
   borderRadius: insetCardRadius,
-  bgcolor: 'rgba(248, 250, 252, 0.85)',
-  border: '1px solid rgba(15, 37, 62, 0.07)',
+  bgcolor: 'rgba(255, 255, 255, 0.92)',
+  border: '1px solid rgba(18, 114, 204, 0.1)',
+  boxShadow: '0 2px 8px rgba(32, 92, 145, 0.05)',
   minWidth: 0,
 };
 const sectionSpacingSx = { xs: 5, sm: 6.5, md: 7.5 };
@@ -86,8 +88,9 @@ const softPillSx = {
   px: 1.4,
   py: 0.55,
   borderRadius: '999px',
-  bgcolor: 'rgba(18, 100, 179, 0.06)',
-  border: '1px solid rgba(18, 100, 179, 0.16)',
+  bgcolor: 'rgba(255, 255, 255, 0.92)',
+  border: '1px solid rgba(255, 255, 255, 0.75)',
+  boxShadow: '0 2px 8px rgba(32, 92, 145, 0.06)',
 };
 const iconBubbleSx = {
   width: 40,
@@ -95,7 +98,7 @@ const iconBubbleSx = {
   borderRadius: '10px',
   display: 'grid',
   placeItems: 'center',
-  bgcolor: 'rgba(18, 100, 179, 0.08)',
+  bgcolor: 'rgba(18, 114, 204, 0.09)',
   color: 'primary.main',
   flexShrink: 0,
 };
@@ -107,13 +110,12 @@ const surfaceCardSx = {
   minWidth: 0,
   overflow: 'hidden',
   bgcolor: '#FFFFFF',
-  border: '1px solid rgba(15, 37, 62, 0.08)',
-  boxShadow: '0 1px 3px rgba(15, 37, 62, 0.04), 0 6px 18px -4px rgba(15, 37, 62, 0.04)',
+  border: '1px solid rgba(255, 255, 255, 0.85)',
+  boxShadow: '0 4px 20px rgba(32, 92, 145, 0.08)',
   transition: 'transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease',
   '&:hover': {
     transform: 'translateY(-3px)',
-    boxShadow: '0 4px 14px rgba(15, 37, 62, 0.06), 0 16px 32px -6px rgba(15, 37, 62, 0.08)',
-    borderColor: 'rgba(18, 100, 179, 0.22)',
+    boxShadow: '0 12px 32px rgba(32, 92, 145, 0.14)',
   },
 };
 const mediaFrameSx = {

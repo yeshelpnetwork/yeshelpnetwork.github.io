@@ -3,13 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --foreground: 15 37 62;
-  --bg-page: #f2f8fd;
-  --surface: #ffffff;
-  --border-subtle: rgba(15, 37, 62, 0.08);
-  --border-card: rgba(226, 232, 240, 0.9);
-  --primary: #1264b3;
-  --primary-dark: #0e4f94;
+  --foreground: 18 48 76;
+  --sky-top: #5fc4f3;
+  --sky-mid: #9ee0ff;
+  --sky-bottom: #eef8ff;
+  --primary: #1272cc;
+  --primary-dark: #0e5ba6;
 }
 
 html,
@@ -19,19 +18,18 @@ body {
 
 body {
   color: rgb(var(--foreground));
-  background-color: #f2f8fd;
-  background-image:
-    radial-gradient(circle at 18% 10%, rgba(255, 255, 255, 0.8), transparent 32%),
-    radial-gradient(circle at 82% 8%, rgba(255, 255, 255, 0.85), transparent 28%),
-    radial-gradient(circle at 50% 95%, rgba(255, 255, 255, 0.6), transparent 45%),
-    linear-gradient(180deg, #dcf0fb 0%, #edf6fd 32%, #f6fafd 100%);
+  background:
+    radial-gradient(circle at 50% -8%, rgba(255, 255, 255, 0.65), transparent 32%),
+    radial-gradient(circle at 14% 12%, rgba(255, 255, 255, 0.35), transparent 22%),
+    radial-gradient(circle at 86% 8%, rgba(255, 255, 255, 0.45), transparent 25%),
+    linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 42%, var(--sky-bottom) 100%);
   background-attachment: fixed;
   overflow-x: hidden;
 }
 
 :focus-visible {
-  outline: 2px solid #1264b3;
-  outline-offset: 2px;
+  outline: 3px solid #1272cc;
+  outline-offset: 3px;
 }
 
 .site-content {
@@ -51,18 +49,25 @@ body {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.4), transparent 30%),
-    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.35), transparent 30%);
+    radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.25), transparent 20%),
+    radial-gradient(circle at 84% 16%, rgba(255, 255, 255, 0.3), transparent 22%),
+    radial-gradient(circle at 50% 95%, rgba(255, 255, 255, 0.4), transparent 40%);
 }
 
 .cloud {
   position: absolute;
-  filter: drop-shadow(0 12px 28px rgba(18, 100, 179, 0.08));
-  animation: cloud-float 44s ease-in-out infinite;
+  filter: drop-shadow(0 16px 28px rgba(45, 125, 185, 0.22));
+  animation-name: cloud-float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
   transform: translate3d(0, 0, 0);
   will-change: transform;
   pointer-events: none;
   user-select: none;
+}
+
+.cloud--alt {
+  animation-name: cloud-float-alt;
 }
 
 @keyframes cloud-float {
@@ -71,10 +76,23 @@ body {
     transform: translate3d(0, 0, 0) scale(1);
   }
   35% {
-    transform: translate3d(24px, -12px, 0) scale(1.02);
+    transform: translate3d(36px, -18px, 0) scale(1.03);
   }
   70% {
-    transform: translate3d(-16px, -6px, 0) scale(0.99);
+    transform: translate3d(-22px, -8px, 0) scale(0.985);
+  }
+}
+
+@keyframes cloud-float-alt {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  40% {
+    transform: translate3d(-32px, -16px, 0) scale(1.025);
+  }
+  75% {
+    transform: translate3d(24px, -6px, 0) scale(0.985);
   }
 }
 

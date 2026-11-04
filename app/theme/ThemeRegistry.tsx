@@ -21,9 +21,9 @@ function createEmotionCache() {
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#1264B3',
-      light: '#3B8CD9',
-      dark: '#0D4E8F',
+      main: '#1473CC',
+      light: '#4DA2EC',
+      dark: '#0D5CA8',
       contrastText: '#FFFFFF',
     },
     secondary: {
@@ -39,14 +39,14 @@ const theme = createTheme({
       contrastText: '#FFFFFF',
     },
     background: {
-      default: '#F8FAFC',
+      default: '#F0F8FE',
       paper: '#FFFFFF',
     },
     text: {
-      primary: '#0F253E',
-      secondary: '#4A657E',
+      primary: '#12304C',
+      secondary: '#335777',
     },
-    divider: 'rgba(15, 37, 62, 0.08)',
+    divider: 'rgba(20, 115, 204, 0.12)',
   },
   shape: { borderRadius: 12 },
   typography: {
@@ -147,23 +147,23 @@ const theme = createTheme({
           boxShadow: 'none',
         },
         containedPrimary: {
-          backgroundColor: '#1264B3',
+          backgroundColor: '#1473CC',
           color: '#FFFFFF',
-          boxShadow: '0 1px 2px rgba(18, 100, 179, 0.16), 0 4px 12px rgba(18, 100, 179, 0.12)',
+          boxShadow: '0 2px 4px rgba(20, 115, 204, 0.2), 0 6px 18px rgba(20, 115, 204, 0.24)',
           '&:hover': {
-            backgroundColor: '#0D4E8F',
-            boxShadow: '0 2px 4px rgba(18, 100, 179, 0.2), 0 6px 16px rgba(18, 100, 179, 0.18)',
+            backgroundColor: '#0D5CA8',
+            boxShadow: '0 4px 8px rgba(20, 115, 204, 0.25), 0 10px 24px rgba(20, 115, 204, 0.3)',
           },
         },
         outlinedPrimary: {
-          backgroundColor: '#FFFFFF',
-          borderColor: 'rgba(18, 100, 179, 0.3)',
+          backgroundColor: 'rgba(255, 255, 255, 0.9)',
+          borderColor: 'rgba(20, 115, 204, 0.38)',
           borderWidth: 1.5,
-          color: '#1264B3',
+          color: '#1473CC',
           '&:hover': {
             borderWidth: 1.5,
-            borderColor: '#1264B3',
-            backgroundColor: 'rgba(18, 100, 179, 0.04)',
+            borderColor: '#1473CC',
+            backgroundColor: 'rgba(20, 115, 204, 0.06)',
           },
         },
       },
