@@ -317,22 +317,7 @@ export default function HomePage() {
       imgBg: '#eef4ff',
     },
   ];
-  const upcomingEvent = {
-    sortDate: '2026-04-24',
-    title: 'Youth Link-Up for Art, Stories & Wellbeing',
-    org: 'Yes Help Network · Youth Week',
-    summary:
-      'Coffee art workshop, fun activities, free food, and empowering circles for young people in Parramatta.',
-    chips: ['Fri 24 Apr 2026 · 4:00-7:00 PM', 'Launch Pad, 6 Hassall St, Parramatta'],
-    link: INSTAGRAM_URL,
-    tags: ['#YouthWeek', '#Art', '#Wellbeing'],
-    status: 'Featured Event',
-    ctaLabel: 'Follow on Instagram',
-    imgSrc: '/images/event-youth-link-up.png',
-    imgAlt: 'Poster for Youth Link-Up for Art, Stories and Wellbeing',
-    imgPosition: 'center 18%',
-  };
-  const pastEvents = [
+  const events = [
     {
       sortDate: '2026-10-15',
       title: 'Comic Workshop: Storytelling & Mental Health',
@@ -344,6 +329,32 @@ export default function HomePage() {
       tags: ['#MentalHealthMonth', '#Comics', '#Wellbeing'],
       imgSrc: '/images/insight-integrational-trauma.png',
       imgAlt: 'Artwork from creative wellbeing workshop',
+      imgPosition: 'center top',
+    },
+    {
+      sortDate: '2026-04-24',
+      title: 'Youth Link-Up for Art, Stories & Wellbeing',
+      org: 'Yes Help Network · Youth Week',
+      summary:
+        'Coffee art workshop, fun activities, free food, and empowering circles for young people in Parramatta.',
+      chips: ['Fri 24 Apr 2026 · 4:00-7:00 PM', 'Launch Pad, 6 Hassall St, Parramatta'],
+      link: INSTAGRAM_URL,
+      tags: ['#YouthWeek', '#Art', '#Wellbeing'],
+      imgSrc: '/images/event-youth-link-up.png',
+      imgAlt: 'Poster for Youth Link-Up for Art, Stories and Wellbeing',
+      imgPosition: 'center 18%',
+    },
+    {
+      sortDate: '2025-10-15',
+      title: 'Under 25s Meetup @ SXSW Sydney',
+      org: '@sxswsydney',
+      summary:
+        'A relaxed meetup to connect with other young people, share ideas and make the most of SXSW Unlocked.',
+      chips: ['Wed 15 Oct · 4:30-5:30 PM', 'Tumbalong Park, Darling Harbour'],
+      link: INSTAGRAM_URL,
+      tags: ['#SXSWSydney'],
+      imgSrc: '/images/insight-integrational-trauma.png',
+      imgAlt: 'Artwork used for a wellbeing-focused Yes Help Network event',
       imgPosition: 'center top',
     },
     {
@@ -372,33 +383,6 @@ export default function HomePage() {
       imgAlt: 'Founder speaking about wellbeing and youth empowerment',
       imgPosition: 'center 20%',
     },
-    {
-      sortDate: '2025-10-15',
-      title: 'Under 25s Meetup @ SXSW Sydney',
-      org: '@sxswsydney',
-      summary:
-        'A relaxed meetup to connect with other young people, share ideas and make the most of SXSW Unlocked.',
-      chips: ['Wed 15 Oct · 4:30-5:30 PM', 'Tumbalong Park, Darling Harbour'],
-      link: INSTAGRAM_URL,
-      tags: ['#SXSWSydney'],
-      imgSrc: '/images/insight-integrational-trauma.png',
-      imgAlt: 'Artwork used for a wellbeing-focused Yes Help Network event',
-      imgPosition: 'center top',
-    },
-  ];
-  const orderedPastEvents = [...pastEvents].sort((a, b) => {
-    if (a.sortDate === b.sortDate) return 0;
-    if (!a.sortDate) return 1;
-    if (!b.sortDate) return -1;
-    return a.sortDate.localeCompare(b.sortDate);
-  });
-  const displayedEvents = [
-    upcomingEvent,
-    ...orderedPastEvents.map((evt) => ({
-      ...evt,
-      status: undefined,
-      ctaLabel: 'View post',
-    })),
   ];
 
   return (
@@ -924,26 +908,20 @@ export default function HomePage() {
         <Container>
           <SectionHeading
             label="Events"
-            title="Upcoming and recent events"
-            description="See what is coming up next and look back at the gatherings that have already brought young people together."
+            title="Past and upcoming events"
+            description="Explore our gatherings, workshops, and meetups that bring young people together across Sydney."
             titleMaxWidth={920}
           />
           <Box sx={sectionCardGridSx}>
-            {displayedEvents.map((evt) => (
+            {events.map((evt) => (
               <Card
                 key={evt.title}
-                sx={[
-                  surfaceCardSx,
-                  {
-                    position: 'relative',
-                  },
-                  evt.status ? { gridColumn: { xs: 'span 1', sm: 'span 2', md: 'span 2' } } : {},
-                ]}
+                sx={surfaceCardSx}
               >
                 <Box
                   sx={{
                     ...mediaFrameSx,
-                    aspectRatio: evt.status ? { xs: '16 / 9', sm: '2.2 / 1' } : '16 / 10',
+                    aspectRatio: '16 / 10',
                     borderBottom: '1px solid rgba(15, 37, 62, 0.08)',
                     borderTopLeftRadius: cardRadius,
                     borderTopRightRadius: cardRadius,
@@ -960,50 +938,17 @@ export default function HomePage() {
                     src={evt.imgSrc}
                     alt={evt.imgAlt}
                     fill
-                    sizes={evt.status ? '(max-width: 900px) 100vw, 66vw' : '(max-width: 900px) 100vw, 33vw'}
+                    sizes="(max-width: 900px) 100vw, 33vw"
                     style={{
                       objectFit: 'cover',
                       objectPosition: evt.imgPosition ?? 'center',
                     }}
                   />
-                  {evt.status && (
-                    <Box
-                      sx={{
-                        position: 'absolute',
-                        top: 14,
-                        left: 14,
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: 0.75,
-                        px: 1.4,
-                        py: 0.6,
-                        borderRadius: '6px',
-                        bgcolor: 'rgba(255, 255, 255, 0.95)',
-                        backdropFilter: 'blur(8px)',
-                        boxShadow: '0 2px 8px rgba(15, 37, 62, 0.1)',
-                      }}
-                    >
-                      <Box
-                        sx={{
-                          width: 8,
-                          height: 8,
-                          borderRadius: '50%',
-                          bgcolor: '#16A34A',
-                        }}
-                      />
-                      <Typography
-                        variant="caption"
-                        sx={{ fontWeight: 800, color: '#15803D', letterSpacing: '0.04em' }}
-                      >
-                        {evt.status.toUpperCase()}
-                      </Typography>
-                    </Box>
-                  )}
                 </Box>
 
                 <CardContent
                   sx={{
-                    p: evt.status ? { xs: 2.2, sm: 2.75 } : cardPaddingSx,
+                    p: cardPaddingSx,
                     pb: 1.5,
                     flexGrow: 1,
                     minWidth: 0,
@@ -1014,11 +959,11 @@ export default function HomePage() {
                     fontWeight={700}
                     gutterBottom
                     sx={{
-                      fontSize: { xs: '1.05rem', sm: evt.status ? '1.25rem' : '1.05rem' },
+                      fontSize: '1.05rem',
                       color: 'text.primary',
                       pr: 0.5,
                       minWidth: 0,
-                      textWrap: evt.status ? 'balance' : 'pretty',
+                      textWrap: 'pretty',
                       lineHeight: 1.25,
                       overflowWrap: 'anywhere',
                     }}
@@ -1064,7 +1009,7 @@ export default function HomePage() {
                           size="small"
                           sx={{
                             ...chipWrapSx,
-                            bgcolor: 'rgba(18, 100, 179, 0.06)',
+                            bgcolor: 'rgba(18, 114, 204, 0.08)',
                             color: 'primary.dark',
                             fontSize: '0.74rem',
                             fontWeight: 600,
@@ -1076,8 +1021,8 @@ export default function HomePage() {
                 </CardContent>
                 <CardActions
                   sx={{
-                    px: evt.status ? { xs: 2.2, sm: 2.75 } : cardPaddingSx,
-                    pb: evt.status ? { xs: 2.2, sm: 2.75 } : cardPaddingSx,
+                    px: cardPaddingSx,
+                    pb: cardPaddingSx,
                     pt: 0.5,
                     mt: 'auto',
                   }}
@@ -1087,15 +1032,15 @@ export default function HomePage() {
                     target="_blank"
                     rel="noopener noreferrer nofollow"
                     size="small"
-                    variant={evt.status ? 'contained' : 'text'}
+                    variant="text"
                     color="primary"
                     endIcon={<ArrowForward sx={{ fontSize: '1rem !important' }} />}
-                    aria-label={`${evt.ctaLabel} for ${evt.title} (opens in a new tab)`}
+                    aria-label={`View post for ${evt.title} (opens in a new tab)`}
                     sx={{
                       fontWeight: 700,
                     }}
                   >
-                    {evt.ctaLabel}
+                    View post
                   </Button>
                 </CardActions>
               </Card>
