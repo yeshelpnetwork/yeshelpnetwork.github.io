@@ -316,21 +316,34 @@ export default function HomePage() {
     },
   ];
   const upcomingEvent = {
-    sortDate: '2026-04-18',
+    sortDate: '2026-04-24',
     title: 'Youth Link-Up for Art, Stories & Wellbeing',
     org: 'Yes Help Network · Youth Week',
     summary:
       'Coffee art workshop, fun activities, free food, and empowering circles for young people in Parramatta.',
-    chips: ['Sat 18 Apr 2026 · 2:00-5:00 PM', 'Parramatta (TBC)'],
+    chips: ['Fri 24 Apr 2026 · 4:00-7:00 PM', 'Launch Pad, 6 Hassall St, Parramatta'],
     link: INSTAGRAM_URL,
     tags: ['#YouthWeek', '#Art', '#Wellbeing'],
-    status: 'Upcoming',
-    ctaLabel: 'Get updates',
+    status: 'Featured Event',
+    ctaLabel: 'Follow on Instagram',
     imgSrc: '/images/event-youth-link-up.png',
     imgAlt: 'Poster for Youth Link-Up for Art, Stories and Wellbeing',
     imgPosition: 'center 18%',
   };
   const pastEvents = [
+    {
+      sortDate: '2026-10-15',
+      title: 'Comic Workshop: Storytelling & Mental Health',
+      org: '@yeshelpnetwork x @inarchie',
+      summary:
+        'A creative Mental Health Month workshop exploring personal narratives and resilience through mini-comics, with no prior drawing experience needed.',
+      chips: ['Thu 15 Oct 2026 · 6:00-8:30 PM', 'Launch Pad, Parramatta'],
+      link: INSTAGRAM_URL,
+      tags: ['#MentalHealthMonth', '#Comics', '#Wellbeing'],
+      imgSrc: '/images/insight-integrational-trauma.png',
+      imgAlt: 'Artwork from creative wellbeing workshop',
+      imgPosition: 'center top',
+    },
     {
       sortDate: '2025-10-10',
       title: 'World Mental Health Day: Speed Friending',
@@ -980,7 +993,7 @@ export default function HomePage() {
                         variant="caption"
                         sx={{ fontWeight: 800, color: '#15803D', letterSpacing: '0.04em' }}
                       >
-                        UPCOMING EVENT
+                        {evt.status.toUpperCase()}
                       </Typography>
                     </Box>
                   )}

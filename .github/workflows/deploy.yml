@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -33,10 +33,12 @@ jobs:
       - name: Build (Next.js static export)
         run: npm run build
 
-      - name: Ensure .nojekyll is present
+      - name: Ensure .nojekyll and CNAME are present
         run: |
           mkdir -p out
           touch out/.nojekyll
+          if [ -f CNAME ]; then cp CNAME out/CNAME; fi
+          if [ -f public/CNAME ]; then cp public/CNAME out/CNAME; fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -56,5 +58,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-
