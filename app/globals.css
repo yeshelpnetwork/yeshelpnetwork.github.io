@@ -7,6 +7,8 @@
   --sky-top: #5fc4f3;
   --sky-mid: #9ee0ff;
   --sky-bottom: #eef8ff;
+  --cloud: rgba(255, 255, 255, 0.96);
+  --cloud-shadow: rgba(45, 125, 185, 0.2);
   --primary: #1272cc;
   --primary-dark: #0e5ba6;
 }
@@ -56,11 +58,13 @@ body {
 
 .cloud {
   position: absolute;
-  filter: drop-shadow(0 16px 28px rgba(45, 125, 185, 0.22));
+  aspect-ratio: 2.6 / 1.4;
+  filter: drop-shadow(0 16px 28px var(--cloud-shadow));
   animation-name: cloud-float;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   transform: translate3d(0, 0, 0);
+  transform-origin: center bottom;
   will-change: transform;
   pointer-events: none;
   user-select: none;
@@ -68,6 +72,51 @@ body {
 
 .cloud--alt {
   animation-name: cloud-float-alt;
+}
+
+.cloud__part {
+  position: absolute;
+  display: block;
+  background: var(--cloud);
+  border-radius: 999px;
+}
+
+.cloud::after {
+  content: '';
+  position: absolute;
+  inset: 30% 12% 4%;
+  border-radius: 999px;
+  background: rgba(141, 205, 238, 0.28);
+  transform: translateY(8%);
+  z-index: -1;
+}
+
+.cloud__part--left {
+  width: 32%;
+  height: 48%;
+  left: 8%;
+  top: 34%;
+}
+
+.cloud__part--center {
+  width: 34%;
+  height: 62%;
+  left: 31%;
+  top: 12%;
+}
+
+.cloud__part--right {
+  width: 31%;
+  height: 54%;
+  right: 10%;
+  top: 24%;
+}
+
+.cloud__part--base {
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+  height: 38%;
 }
 
 @keyframes cloud-float {
